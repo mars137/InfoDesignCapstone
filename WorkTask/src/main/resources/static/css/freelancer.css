@@ -57,6 +57,31 @@ hr.star-light:after {
   background-color: #18BC9C;
   color: white;
 }
+
+hr.star-custom {
+  padding: 0;
+  border: none;
+  border-top: solid 5px;
+  text-align: center;
+  max-width: 250px;
+  margin: 25px auto 30px;
+}
+hr.star-custom:after {
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  position: relative;
+  top: -0.8em;
+  font-size: 2em;
+  padding: 0 0.25em;
+}
+hr.star-custom {
+  border-color: #1275BC;
+}
+hr.star-custom:after {
+  background-color: lightyellow;
+  color: #1275BC;
+}
 hr.star-primary {
   border-color: #2C3E50;
 }
@@ -67,18 +92,36 @@ hr.star-primary:after {
 .img-centered {
   margin: 0 auto;
 }
+
+.no-padding{
+	padding: 0 !important;
+}
 header {
   text-align: center;
-  background: #18BC9C;
-  color: white;
+  background: lightyellow;
+  color: #1275BC;
+
 }
 header .container {
   padding-top: 100px;
   padding-bottom: 50px;
+
 }
 header img {
   display: block;
   margin: 0 auto 20px;
+}
+
+header .background{
+	
+	background-image: url('../images/homepage/minion_teamwork.gif');
+	background-position: cover;
+	background-repeat: no-repeat;
+	min-height:400px;
+	
+}
+.llb{
+	margin-top: 10px;
 }
 header .intro-text .name {
   display: block;
@@ -96,6 +139,8 @@ header .intro-text .skills {
     padding-top: 200px;
     padding-bottom: 100px;
   }
+
+  
   header .intro-text .name {
     font-size: 4.75em;
   }
