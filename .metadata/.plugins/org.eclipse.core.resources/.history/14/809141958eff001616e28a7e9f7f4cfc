@@ -1,0 +1,8 @@
+var app = angular.module('errandify', []);
+
+app.controller('a',[,function()
+	
+	{
+	alert("inside");
+	}
+	]);

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="errandify">
 
 <head>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+  <script src="http://code.angularjs.org/1.2.1/angular-route.min.js"></script>
+<!--  <script src="js/js/ng-cookies.js"></script> -->
+ <script src="js/custom/errandify.js"></script>
     <meta charset="utf-8"></meta>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
@@ -32,7 +35,7 @@
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" >
 
     <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
@@ -52,6 +55,9 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
+                        <a href="#login">Login</a>
+                    </li>
+                    <li class="page-scroll">
                         <a href="#portfolio">Features</a>
                     </li>
                     <li class="page-scroll">
@@ -60,6 +66,7 @@
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
                     </li>
+                     
                     
                 </ul>
             </div>
@@ -84,7 +91,18 @@
         </div>
         </div>
     </header>
-
+<!-- Login Section -->
+      
+    
+      
+      
+      <!--  <div ng-include="'view/login/login.html'"> </div> -->
+      
+      <div ng-view></div>
+      
+      
+      
+      
     <!-- Portfolio Grid Section -->
     <section id="portfolio">
         <div class="container">
@@ -395,6 +413,10 @@
     <!-- Theme JavaScript -->
     <script src="js/custom/freelancer.js"></script>
 
+  <script src="js/custom/authCtrl.js"></script>
+
+    
+    
 </body>
 
 </html>
