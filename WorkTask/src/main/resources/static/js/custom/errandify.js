@@ -15,7 +15,7 @@ app.config(['$routeProvider',
 	            })
 	            .when('/dashboard', {
 	                title: 'Dashboard',
-	                templateUrl: 'view/login/login.html',
+	                templateUrl: 'view/functionality/project.html',
 	                controller: 'app/controlller/authCtrl'
 	            })
 	            .when('/signup', {

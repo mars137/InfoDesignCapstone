@@ -1,0 +1,10 @@
+package com.example.bean;
+
+public class Login {
+private String email;
+private String password;
+private String name;
+private String lastName;
+private String grpNo;
+
+}

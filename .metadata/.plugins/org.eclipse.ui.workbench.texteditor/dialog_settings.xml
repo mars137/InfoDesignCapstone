@@ -2,12 +2,16 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="ng-app" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="ng-controller"/>
+			<item value="controller"/>
+			<item value="Contac"/>
+			<item value="Contatc"/>
 			<item value="&lt;meta&gt;"/>
 		</list>
 		<list key="replacehistory">

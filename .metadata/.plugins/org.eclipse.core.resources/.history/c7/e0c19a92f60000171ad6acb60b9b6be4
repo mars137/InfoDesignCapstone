@@ -1,0 +1,19 @@
+app.controller('authCtrl',function($scope){
+	console.log("Authentication function");
+	
+	
+	$scope.signup = {email:'',password:'',name:'',l_name:''};
+    $scope.signUp = function (customer) {
+        Data.post('signUp', {
+            customer: customer
+        }).then(function (results) {
+            Data.toast(results);
+            if (results.status == "success") {
+                $location.path('dashboard');
+            }
+        });
+    };
+	
+	
+	
+})

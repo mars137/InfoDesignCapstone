@@ -1,3 +1,21 @@
-app.controller('authCtrl',function($scope){
+app.controller('authCtrl',function($scope,$http){
 	console.log("Authentication function");
+	
+	
+	$scope.signup = {email:'',password:'',name:'',l_name:''};
+    $scope.signUp = function (customer) {
+    	 dataObj=JSON.stringify(customer);
+     //    dataObj=JSON.parse(customer);
+   		var res = $http.post('http://localhost:8080/LoginInsert', dataObj);
+   		res.success(function(data, status, headers, config) {
+   			$scope.message = data;
+   alert(data);
+   		});
+   		res.error(function(data, status, headers, config) {
+   			alert( "failure message: " + JSON.stringify({data: data}));
+   		});	
+    };
+	
+	
+	
 })

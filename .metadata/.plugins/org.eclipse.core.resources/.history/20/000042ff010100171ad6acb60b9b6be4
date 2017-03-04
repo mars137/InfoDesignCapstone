@@ -1,0 +1,69 @@
+package com.example.Dao;
+
+
+
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BatchPreparedStatementSetter;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.simple.SimpleJdbcCall;
+import org.springframework.stereotype.Component;
+
+import com.example.bean.AddStatus;
+import com.example.bean.Login;
+
+@Component
+public class LoginDao {
+@Autowired
+	JdbcTemplate jdbcTemplate;
+
+
+@Autowired
+DataSource dataSource;
+
+
+  
+
+
+	public void insertLogin(final Login addetails) {
+
+		  String sql = "insert into customers_auth " +
+			"(name,l_name, email, password,created,stat,group_id) VALUES (?, ?, ?,?,?,?)";
+		   jdbcTemplate = new JdbcTemplate(dataSource);
+		   
+		   jdbcTemplate.update(
+				    sql,
+				    new Object[] { addetails.getName(), addetails.getL_name(),
+				    		addetails.getEmail(), addetails.getPassword(),"",addetails.getRole() });
+
+				 }
+	/*	  jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
+			  
+			  @Override
+			public void setValues(PreparedStatement ps, int i) throws SQLException {
+				
+			//	ps.setInt(1,addetails.getLogin_id());
+				ps.setString(3, addetails.getEmail());
+				ps.setString(4,addetails.getPassword() );
+				ps.setString(1, addetails.getName());
+				ps.setString(2, addetails.getLastName());
+				ps.setString(7, addetails.getGrpNo());
+			}
+
+			@Override
+			public int getBatchSize() {
+				return addetails.size();
+			}
+		  });*/
+		}
+	
+	
+
