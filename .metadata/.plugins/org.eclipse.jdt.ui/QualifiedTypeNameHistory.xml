@@ -3,4 +3,5 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="com.example.bean.Login"/>
 <fullyQualifiedTypeName name="com.example.Dao.LoginDao"/>
+<fullyQualifiedTypeName name="java.sql.Types"/>
 </qualifiedTypeNameHistroy>
