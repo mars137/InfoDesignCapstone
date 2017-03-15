@@ -1,3 +1,0 @@
-app.controller('authCtrl',function(){
-	alert("Authentication");
-})

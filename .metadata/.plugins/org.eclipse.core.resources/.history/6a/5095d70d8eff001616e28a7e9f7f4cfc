@@ -1,4 +1,0 @@
-angular.module('errandify',[])
-  .controller('demo',function($scope))
-{
-	})
