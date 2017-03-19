@@ -16,7 +16,7 @@ app.config(['$routeProvider',
 	            .when('/dashboard', {
 	                title: 'Dashboard',
 	                templateUrl: 'view/functionality/project.html',
-	                controller: 'app'
+	              //  controller: 'task2'
 	            })
 	            .when('/signup', {
 	                title: 'Signup',
@@ -49,3 +49,13 @@ app.config(['$routeProvider',
 	                redirectTo: '/login'
 	            });
 	  }])
+	  .run(function ($rootScope) {
+        $rootScope.$on("$routeChangeStart", function ($scope, $rootScope) {
+        	$rootScope.view=false;
+        	$rootScope.portfolio=false;
+        	$rootScope.about=false;
+        	$rootScope.contact=false;
+        	$rootScope.errandify=false;
+        	
+        });
+    });
