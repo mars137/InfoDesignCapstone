@@ -13,13 +13,19 @@
                     <div class="widget-main">
                      
                         <br/>
-                        <form name="signupForm" class="form-horizontal" role="form">
+                        <form name="signupForm" class="form-horizontal" role="form"  novalidate>
                             <div class="form-group">
                                 <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="email">Email</label>
                                 <div class="col-sm-7 col-xs-10">
                                     <span class="block input-icon input-icon-right">
-                                        <input type="text" class="form-control" placeholder="Email" name="email" ng-model="signup.email" focus/>
-                                        <span ng-show="signupForm.email.$error.email" class="help-inline">Email is not valid</span> 
+                                        <input type="email" 
+                                        class="form-control"
+                                         placeholder="Email" 
+                                         name="email" 
+                                         ng-model="signup.email" 
+                                         ng-required="true" focus/>
+                                        <!-- span ng-show="signupForm.email.$error.email" class="help-inline">Email is not valid</span-->
+                                        <small class="errorMessage" data-ng-show="signupForm.email.$dirty && signupForm.email.$invalid">Please enter a valid email</small> 
                                     </span>
                                 </div>
                             </div>
@@ -27,7 +33,12 @@
                                 <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="password">Password</label>
                                 <div class="col-sm-7 col-xs-10">
                                     <span class="block input-icon input-icon-right">
-                                <input type="password" class="form-control" name = "password" placeholder="Password" ng-model="signup.password" required/>
+                                <input type="password" 
+                                class="form-control" 
+                                name = "password" 
+                                placeholder="Password" 
+                                ng-model="signup.password" 
+                                ng-required="true"/>
                                 <small class="errorMessage" data-ng-show="signupForm.password.$dirty && signupForm.password.$invalid"> Enter Password.</small>
                             </span>
                                 </div>
@@ -36,19 +47,29 @@
                                 <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="password2">Confirm Password</label>
                                 <div class="col-sm-7 col-xs-10">
                                     <span class="block input-icon input-icon-right">
-                                <input type="password" class="form-control" name="password2" placeholder="Password Again" ng-model="signup.password2" password-match="signup.password" required/>                                
-                                <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.required"> Enter password again.</small>
-
-                               <small class="errorMessage" data-ng-show="signupForm.password2.$dirty && signupForm.password2.$error.passwordNoMatch && !signupForm.password2.$error.required"> Password do not match.</small>
+                                <input type="password" 
+                                class="form-control" 
+                                name="password2" 
+                                placeholder="Repeat Password" 
+                                ng-model="signup.password2" 
+                                password-match="signup.password" 
+                                ng-required="true"
+                                data-password-verify="signup.password"/>                              
+                                
+                               <small class="errorMessage" data-ng-show="signupForm.password2.$error.passwordVerify"> Password do not match.</small>
 
                             </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="name">Name</label>
+                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="name">First Name</label>
                                 <div class="col-sm-7 col-xs-10">
                                     <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Name" ng-model="signup.name" />
+                                <input type="text" 
+                                class="form-control" 
+                                placeholder="First Name" 
+                                ng-model="signup.name" 
+                                ng-required="true"/>
                             </span>
                                 </div>
                             </div>
@@ -56,15 +77,18 @@
                                 <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="phone">Last Name</label>
                                 <div class="col-sm-7 col-xs-10">
                                     <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Last Name" name="l_name" ng-model="signup.l_name"/>
+                                <input type="text" class="form-control" placeholder="Last Name" name="l_name" ng-model="signup.l_name" ng-required="true"/>
                             </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="address">Apt No.</label>
+                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="address">Group Code</label>
                                 <div class="col-sm-7 col-xs-10">
                                     <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Role" ng-model="signup.role" />
+                                <input type="text" 
+                                class="form-control" 
+                                placeholder="Enter group code to join an existing group." 
+                                ng-model="signup.role" />
                             </span>
                                 </div>
                             </div>

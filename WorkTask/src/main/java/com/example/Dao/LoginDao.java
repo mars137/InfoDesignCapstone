@@ -17,111 +17,50 @@ public class LoginDao {
 @Autowired
 	JdbcTemplate jdbcTemplate;
 
-
 @Autowired
 DataSource dataSource;
 
 
-  
-
-
-	public void insertLogin(final Login addetails) {
+	public void registerUser(final Login addetails) {
 
 		  String sql = "insert into customers_auth " +
 			"(name,l_name, email, password,stat,group_id) VALUES (?, ?, ?,?,?,?)";
 		   
-		  
-		/*  "INSERT INTO customers_auth (" +
-		 
-		    " name, " +
-		 
-		    " l_name, " +
-		  
-		    " email, " +
-		    " password, " +
-		    " email, " +
-		 
-		    " created) " +
-		  
-		    "VALUES (?, ?, ?, ?)";*/
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
-		  
+
 		  jdbcTemplate = new JdbcTemplate(dataSource);
 		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		// define query arguments
+		    
+		  // define query arguments
 		  
-		           Object[] params = new Object[] { addetails.getName(), addetails.getL_name(), addetails.getEmail(),
+		   Object[] params = new Object[] { addetails.getName(), addetails.getL_name(), addetails.getEmail(),
 		        		   addetails.getPassword(),"",addetails.getRole()};
-		  
-		            
 		   
 		           // define SQL types of the arguments
 		   
-		           int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR ,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR};
+		   int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.VARCHAR ,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR};
 		   
 		   
 		           
-		           int row = jdbcTemplate.update(sql, params, types);
-		           
-		                   System.out.println(row + " row inserted.");
-
+		   int row = jdbcTemplate.update(sql, params, types);
 		   
-		  /* jdbcTemplate.update(
-				    sql,
-				    new Object[] { addetails.getName(), addetails.getL_name(),
-				    		addetails.getEmail(), addetails.getPassword(),"",addetails.getRole() });*/
+		   System.out.println(row + " row inserted.");
 
-				 }
-	/*	  jdbcTemplate.batchUpdate(sql, new BatchPreparedStatementSetter() {
-			  
-			  @Override
-			public void setValues(PreparedStatement ps, int i) throws SQLException {
-				
-			//	ps.setInt(1,addetails.getLogin_id());
-				ps.setString(3, addetails.getEmail());
-				ps.setString(4,addetails.getPassword() );
-				ps.setString(1, addetails.getName());
-				ps.setString(2, addetails.getLastName());
-				ps.setString(7, addetails.getGrpNo());
+		
 			}
 
-			@Override
-			public int getBatchSize() {
-				return addetails.size();
-			}
-		  });*/
-		}
 	
+	
+public boolean checkLogin(final Login userDetails) {
+	
+
+	Object[] params = new Object[] { userDetails.getEmail(), userDetails.getPassword()}; 
+	//jdbcTemplate.
+	int cnt = jdbcTemplate.queryForObject(
+		    "SELECT count(*) FROM customers_auth WHERE email = ? AND password = ?", params, Integer.class);
+	
+	return (cnt==1)?true:false;
+	
+	}
+}
 	
 

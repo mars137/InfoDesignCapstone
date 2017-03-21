@@ -1,13 +1,11 @@
-app.controller('authCtrl',function($scope,$http,$location,$rootScope ){
-	console.log("Authentication function");
-	//$scope.Portfolio=true;
-		//$location.path('dashboard');
-	$scope.signup = {email:'',password:'',name:'',l_name:''};
+app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
+	console.log("Registration function");
+
     $scope.signUp = function (customer) {
     	
     	 dataObj=JSON.stringify(customer);
-     //    dataObj=JSON.parse(customer);
-   		var res = $http.post('http://localhost:8080/LoginInsert', dataObj);
+
+   		var res = $http.post('http://localhost:8080/RegisterUser', dataObj);
    		res.success(function(data, status, headers, config) {
    			$scope.message = data;
    			$rootScope.portfolio=true;
@@ -17,18 +15,13 @@ app.controller('authCtrl',function($scope,$http,$location,$rootScope ){
         	$rootScope.view=true;
    		//	swal("It seems you forgot your login credentials!", "Try Again!", "error")
    			swal({
-   			  title: "Welcome!",
-   			  text: "Get your work done!!!!.",
+   			  title: "Congratulations",
+   			  text: "Your profile has been created.Login to get started",
    			//  timer:20000,
-   			  imageUrl: "images/homepage/Minion.gif"
+   			 // imageUrl: "images/homepage/Minion.gif"
    			});
    			
-   			/*$scope.PortfolioVisible=false;
-   	    	$scope.AboutVisible=false;
-   	    	$scope.ContactVisible=false;*/
-   	    //	$scope.MainVisible=false;
-   	    	//$scope.Main1Visible=false;
-   			$location.path('dashboard');
+   			$location.path('login');
    			
    		});
    		res.error(function(data, status, headers, config) {
@@ -39,3 +32,81 @@ app.controller('authCtrl',function($scope,$http,$location,$rootScope ){
 	
 	
 })
+//for login
+app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ){
+	console.log("Login function");
+	//$scope.login = {email:'',password:''};
+    $scope.doLogin = function (customer) {
+    	
+    	 dataObj=JSON.stringify(customer);
+
+   		var res = $http.post('http://localhost:8080/LoginUser', dataObj);
+   		res.success(function(data, status, headers, config) {
+   			
+   			if(data == "true"){
+   				swal({
+	   			  title: "Welcome!",
+	   			  text: "Get your work done!!!!.",
+	   			//  timer:20000,
+	   			  imageUrl: "images/homepage/Minion.gif"
+	   			});
+   				$scope.message = data;
+   	   			$rootScope.portfolio=true;
+   	        	$rootScope.about=true;
+   	        	$rootScope.contact=true;
+   	        	$rootScope.errandify=true;
+   	        	$rootScope.view=true;
+	   			$location.path('dashboard');
+   			}
+   			else{
+   				swal({
+   	   			  title: "Invalid Credentials!",
+   	   			  text: "Please enter correct credentials!!!!.",
+   	   			//  timer:20000,
+   	   			 // imageUrl: "images/homepage/Minion.gif"
+   	   			});
+   	   			
+   	   			$location.path('login');
+   			}
+   		});
+   		res.error(function(data, status, headers, config) {
+   			alert( "failure message: " + JSON.stringify({data: data}));
+   		});	
+    };
+	
+	
+	
+})
+
+//directive to check if passwords match
+app.directive("passwordVerify", function() {
+   return {
+      require: "ngModel",
+      scope: {
+        passwordVerify: '='
+      },
+      link: function(scope, element, attrs, ctrl) {
+        scope.$watch(function() {
+            var combined;
+
+            if (scope.passwordVerify || ctrl.$viewValue) {
+               combined = scope.passwordVerify + '_' + ctrl.$viewValue; 
+            }                    
+            return combined;
+        }, function(value) {
+            if (value) {
+                ctrl.$parsers.unshift(function(viewValue) {
+                    var origin = scope.passwordVerify;
+                    if (origin !== viewValue) {
+                        ctrl.$setValidity("passwordVerify", false);
+                        return undefined;
+                    } else {
+                        ctrl.$setValidity("passwordVerify", true);
+                        return viewValue;
+                    }
+                });
+            }
+        });
+     }
+   };
+});

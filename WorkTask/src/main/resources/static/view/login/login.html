@@ -17,15 +17,21 @@
 
                 
 
-                <form name="loginForm" class="form-horizontal" role="form">
+                <form name="loginForm" class="form-horizontal" role="form" novalidate>
                     <div class="form-group">
                         <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="email"> Email
                         <i class="ace-icon fa fa-user"></i></label>
                         <div class="col-sm-7 col-xs-10">
                            <span class="block input-icon input-icon-right">
-                                <input type="text" class="form-control" placeholder="Email / Phone" name="email" ng-model="login.email" required focus/>
-                                
+                                <input type="email" 
+                                class="form-control"
+                                placeholder="Email" 
+                                name="email"
+                                 ng-model="login.email" 
+                                 ng-required="true" focus/>
+                                <small class="errorMessage" data-ng-show="loginForm.email.$dirty && loginForm.email.$invalid">Please enter a valid email</small> 
                             </span>
+                            
                         </div>
                     </div>
                     <div class="form-group">
@@ -33,7 +39,12 @@
                         <i class="ace-icon fa fa-lock"></i></label>
                         <div class="col-sm-7 col-xs-10">
                            <span class="block input-icon input-icon-right">
-                                <input type="password" class="form-control" placeholder="Password" ng-model="login.password" required/>
+                                <input type="password" 
+                                class="form-control" 
+                                placeholder="Password" 
+                                ng-model="login.password" 
+                                ng-required="true"/>
+                                <small class="errorMessage" data-ng-show="loginForm.password.$dirty && loginForm.password.$invalid"> Enter Password</small>
                                 
                             </span>
                         </div>

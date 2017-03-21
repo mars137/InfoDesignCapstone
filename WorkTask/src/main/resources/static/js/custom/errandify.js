@@ -6,7 +6,7 @@ app.config(['$routeProvider',
 	        when('/login', {
 	            title: 'Login',
 	            templateUrl: 'view/login/login.html',
-	           controller: 'authCtrl'
+	           controller: 'LoginCtrl'
 	        })
 	            .when('/logout', {
 	                title: 'Logout',
@@ -21,13 +21,13 @@ app.config(['$routeProvider',
 	            .when('/signup', {
 	                title: 'Signup',
 	                templateUrl: 'view/login/signup.html',
-	                controller: 'authCtrl'
+	                controller: 'RegistrationCtrl'
 	            })
 	            
 	            .when('/home', {
 	                title: 'Login',
 	                templateUrl: 'view/login/login.html',
-	               controller: 'authCtrl',
+	               controller: 'LoginCtrl',
 	                role: '0'
 	            })
 	            .when('/portfolio', {
