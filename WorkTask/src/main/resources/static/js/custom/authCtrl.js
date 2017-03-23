@@ -33,7 +33,7 @@ app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
 	
 })
 //for login
-app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ){
+app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
 	console.log("Login function");
 	//$scope.login = {email:'',password:''};
     $scope.doLogin = function (customer) {
@@ -42,13 +42,13 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ){
 
    		var res = $http.post('http://localhost:8080/LoginUser', dataObj);
    		res.success(function(data, status, headers, config) {
-   			
-   			if(data == "true"){
+   		
+   			if(data > 0){
    				swal({
 	   			  title: "Welcome!",
 	   			  text: "Get your work done!!!!.",
 	   			//  timer:20000,
-	   			  imageUrl: "images/homepage/Minion.gif"
+	   			 // imageUrl: "images/homepage/Minion.gif"
 	   			});
    				$scope.message = data;
    	   			$rootScope.portfolio=true;
@@ -57,16 +57,21 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ){
    	        	$rootScope.errandify=true;
    	        	$rootScope.view=true;
 	   			$location.path('dashboard');
+	   			
+	   			//stores information in local storage
+	   			$window.sessionStorage.session = {uid:data,isLogged:'1',email:customer.email} ;
+	   			
    			}
    			else{
    				swal({
    	   			  title: "Invalid Credentials!",
    	   			  text: "Please enter correct credentials!!!!.",
    	   			//  timer:20000,
-   	   			 // imageUrl: "images/homepage/Minion.gif"
+   	   			 imageUrl: "images/homepage/Minion.gif"
    	   			});
    	   			
-   	   			$location.path('login');
+   	   			$location.path('login');  	   		
+   	   		delete $window.sessionStorage.session;
    			}
    		});
    		res.error(function(data, status, headers, config) {

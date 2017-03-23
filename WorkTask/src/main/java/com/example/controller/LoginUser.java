@@ -23,19 +23,20 @@ public class LoginUser {
 	
 	
 	@RequestMapping(method = RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody String doLogin(@RequestBody Login userDetails)
+	public @ResponseBody Integer doLogin(@RequestBody Login userDetails)
 	{
 		try{
-		boolean ifValidUser = login.checkLogin(userDetails);
-		if(ifValidUser)
-			return "true";
+		int userID = login.checkLogin(userDetails);
+		if(userID>0)
+			return userID;
 		else
-			return "false";
+			return -1;
 		//return Collections.singletonMap("response", "Updated Successfully");
 		}
 		catch(Exception e)
 		{
-			return JSONObject.quote(e.getMessage());
+			System.err.println(JSONObject.quote(e.getMessage()));
+			return -1;
 		}
 		
 	} 

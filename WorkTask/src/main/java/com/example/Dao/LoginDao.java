@@ -50,15 +50,15 @@ DataSource dataSource;
 
 	
 	
-public boolean checkLogin(final Login userDetails) {
+public int checkLogin(final Login userDetails) {
 	
 
 	Object[] params = new Object[] { userDetails.getEmail(), userDetails.getPassword()}; 
 	//jdbcTemplate.
-	int cnt = jdbcTemplate.queryForObject(
-		    "SELECT count(*) FROM customers_auth WHERE email = ? AND password = ?", params, Integer.class);
+	int uid = jdbcTemplate.queryForObject(
+		    "SELECT uid FROM customers_auth WHERE email = ? AND password = ?", params, Integer.class);
 	
-	return (cnt==1)?true:false;
+	return uid;
 	
 	}
 }
