@@ -2,8 +2,8 @@
 
 
 app.controller('TabController', ['$scope','$rootScope',function($scope){
-    //this.tab = 3;
-console.log("inside functionlity");
+  
+console.log("inside functionlityu");
     this.setTab = function(newValue){
       this.tab = newValue;
       if(newValue==2)
@@ -62,7 +62,8 @@ $scope.check=function(user)
 
  $scope.refreshData=function(){
   var parameters = {
-                id: Val
+		  id:1
+              //  id: Val
               //  startDate=,
                // endDate=
             };

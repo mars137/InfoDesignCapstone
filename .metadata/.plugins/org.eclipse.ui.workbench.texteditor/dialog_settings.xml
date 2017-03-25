@@ -2,21 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="ng-view" key="selection"/>
+		<item value="last" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="last"/>
+			<item value="$cooki"/>
+			<item value="$cooki&apos;"/>
+			<item value="ng-table"/>
+			<item value="ng-app"/>
 			<item value="ng-view"/>
 			<item value="task_master"/>
 			<item value="ng-controller"/>
-			<item value="controller"/>
-			<item value="Contac"/>
-			<item value="Contatc"/>
-			<item value="&lt;meta&gt;"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
