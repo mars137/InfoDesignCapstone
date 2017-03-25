@@ -33,7 +33,7 @@ console.log("inside functionlityu");
  //$scope.names = ["InComplete", "Complete"];
  //lastVal = $cookieStore.get('lastValue');
 	  var Val="";
-	  
+	  Val= $window.sessionStorage.getItem("uid");
  // getting  call from tab controller..............
  $rootScope.$on("CallParentMethod", function(){
 	 //var Val= $window.sessionStorage.getItem("uid");
@@ -63,11 +63,11 @@ $scope.check=function(user)
 }
 
  $scope.refreshData=function(){
-	 Val=  $rootScope.uid;
+	 
   var parameters = {
 		  
 		 // id:1
-               id: Val
+               id: lastVal
               //  startDate=,
                // endDate=
             };
@@ -172,7 +172,6 @@ var doo = new Date(user.due_date);
     var lastVal="";
     var p;
 	 lastVal= $window.sessionStorage.getItem("uid");
-	 $rootScope.uid= $window.sessionStorage.getItem("uid");
     //  lastVal = $cookieStore.get('lastValue');
 alert("uid"+ lastVal);
 

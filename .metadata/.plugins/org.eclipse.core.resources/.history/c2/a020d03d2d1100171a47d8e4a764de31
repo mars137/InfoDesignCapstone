@@ -56,7 +56,6 @@ app.config(['$routeProvider',
         	$rootScope.about=false;
         	$rootScope.contact=false;
         	$rootScope.errandify=false;
-        	$rootScope.uid="";
         	
         });
     });

@@ -59,10 +59,8 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
 	   			$location.path('dashboard');
 	   			
 	   			//stores information in local storage
-	   		//	$window.sessionStorage.session = {uid:data,isLogged:'1',email:customer.email} ;
+	   			$window.sessionStorage.session = {uid:data,isLogged:'1',email:customer.email} ;
 	   			
-	   		 $window.sessionStorage.setItem("uid",data);
-	   		 $window.sessionStorage.setItem("email",customer.email);
    			}
    			else{
    				swal({

@@ -28,15 +28,13 @@ console.log("inside functionlityu");
 
   }]);
   
-  app.controller("retriveCtrl",['$rootScope','$scope','$http','$window','$filter',function($rootScope,$scope,$http,$filter,$window){
+  app.controller("retriveCtrl",['$rootScope','$scope','$http','$filter',function($rootScope,$scope,$http,$filter){
 	
  //$scope.names = ["InComplete", "Complete"];
  //lastVal = $cookieStore.get('lastValue');
-	  var Val="";
-	  
+
  // getting  call from tab controller..............
  $rootScope.$on("CallParentMethod", function(){
-	 //var Val= $window.sessionStorage.getItem("uid");
            $scope.refreshData();
         });
 
@@ -63,11 +61,9 @@ $scope.check=function(user)
 }
 
  $scope.refreshData=function(){
-	 Val=  $rootScope.uid;
   var parameters = {
-		  
-		 // id:1
-               id: Val
+		  id:1
+              //  id: Val
               //  startDate=,
                // endDate=
             };
@@ -172,12 +168,11 @@ var doo = new Date(user.due_date);
     var lastVal="";
     var p;
 	 lastVal= $window.sessionStorage.getItem("uid");
-	 $rootScope.uid= $window.sessionStorage.getItem("uid");
     //  lastVal = $cookieStore.get('lastValue');
-alert("uid"+ lastVal);
+alert("uid lastVal"+ lastVal);
+if(lastVal==undefined)
 
-
-	//  var a =$scope.uid;
+	  var a =$scope.uid;
 $scope.counter = 0;
  $scope.names = ["Daily", "Weekly", "Monthly"];
   $scope.multiple = [1,2,3,4];
@@ -320,8 +315,8 @@ alert(data);
 
 app.controller('showChart', function ($scope,$rootScope) {
 
-
-
+var x =  $rootScope.uid;
+alert(x);
 $scope.demo=true;
 
  $scope.myDate = new Date();

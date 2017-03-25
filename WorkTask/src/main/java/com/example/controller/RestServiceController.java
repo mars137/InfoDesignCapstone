@@ -39,7 +39,7 @@ public class RestServiceController {
 		
 		return up;
 	}
-	@CrossOrigin(origins = "http://localhost:80/")
+	//@CrossOrigin(origins = "http://localhost:80/")
 	@RequestMapping(value="/editstatus" ,method=RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)  
 	public @ResponseBody String update(@RequestBody UpdateStatus updatestaus)
 	{

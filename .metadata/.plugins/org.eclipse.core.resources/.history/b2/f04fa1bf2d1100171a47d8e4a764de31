@@ -33,7 +33,7 @@ console.log("inside functionlityu");
  //$scope.names = ["InComplete", "Complete"];
  //lastVal = $cookieStore.get('lastValue');
 	  var Val="";
-	  
+	  Val=  $rootScope.uid;
  // getting  call from tab controller..............
  $rootScope.$on("CallParentMethod", function(){
 	 //var Val= $window.sessionStorage.getItem("uid");
@@ -63,7 +63,7 @@ $scope.check=function(user)
 }
 
  $scope.refreshData=function(){
-	 Val=  $rootScope.uid;
+	 
   var parameters = {
 		  
 		 // id:1
