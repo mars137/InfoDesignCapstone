@@ -1,0 +1,235 @@
+<html>
+
+<body>
+	<!--  header>
+        <h1 class="text-center">Manage Tasks</h1>
+
+    </header-->
+	<div class="container" style="padding-top: 0px !important">
+		<!-- div class="well">
+            <div class="space-16"></div>
+            UID: {{uid}}
+            <br/>NAME: {{name}}
+            <br/>E-MAIL: {{email}}
+
+            <br/>Apt: {{role}}
+            <br/>
+            </br>
+            <a class="pull-right" ng-click="logout();">Logout</a>
+        </div> -->
+
+
+		<div class="row">
+		<div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-12 col-xs-12" style="border-bottom:1px solid #ccc">
+		<img alt="minon-img" class="img img-responsive pull-right" src="images/homepage/test.jpeg" style="margin-bottom:0px">
+		</div>
+		</div>
+		<div class="tab" ng-controller="TabController as tabs">
+			<ul class="nav nav-pills col-md-offset-3">
+
+
+				<li ng-class="{active:tabs.isSet(3)}" class="col-md-2 col-sm-4 col-xs-4 padder-2">
+					<a href ng-click="tabs.setTab(3)">Add Task</a>
+				</li>
+				<li ng-class="{active:tabs.isSet(2)}" class="col-md-3 col-sm-4 col-xs-4 padder-2">
+					<a href ng-click="tabs.setTab(2)">Update Status</a>
+				</li>
+				<li ng-class="{active:tabs.isSet(4)}" class="col-md-3 col-sm-4 col-xs-4 padder-2">
+					<a href ng-click="tabs.setTab(4)">Report Card</a>
+				</li>
+			</ul>
+
+
+			<div ng-show="tabs.isSet(2)" ng-controller="retriveCtrl"
+				ng-init="refreshData()">
+				<h4>Update Status</h4>
+
+
+				<div ng-cloak="" class="datepickerdemoBasicUsage">
+					<md-content layout-padding="">
+
+					<div layout-gt-xs="row">
+						<div flex-gt-xs="">
+							<h4>Start Date</h4>
+							<md-datepicker ng-model="myDate1" md-placeholder="Enter date"></md-datepicker>
+						</div>
+						<div flex-gt-xs="">
+							<h4>End Date</h4>
+							<md-datepicker ng-model="myDate2" md-placeholder="Enter date"></md-datepicker>
+						</div>
+
+						<div flex-gt-xs="">
+
+							<input button class="btn btn-primary" ng-click="retriveTask ()"
+								type="submit"></input>
+						</div>
+
+
+					</div>
+
+
+					</md-content>
+				</div>
+
+
+
+
+				<table ng-table="tableParams" class="table table-bordered"
+					show-filter="true">
+					<tr ng-repeat="user in 	Details | orderBy:'-due_date'">
+
+						<td title="'Work'">{{user.taskName}}</td>
+
+						<td title="'Due Date'">{{user.due_date}}</td>
+
+						<td title="'Status'"><select ng-model="user.status"
+							ng-options="item for item in names.values"
+							ng-change="updatetask(user)" ng-disabled="!check(user.due_date)">
+						</select></td>
+					</tr>
+				</table>
+
+
+
+			</div>
+
+
+
+			<div ng-show="tabs.isSet(3)" ng-controller="assign">
+				<div class="row">
+					<div   ng-repeat="personalDetail in personalDetail1"
+						class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-12 col-xs-12">
+						<form ng-submit="addNew(1)">
+							<div class="form-group ">
+								<input class="form-control" id="task_name"
+									 ng-model="personalDetail.module" placeholder="TASK NAME"
+									type="text" />
+							</div>
+
+							<div class="form-group ">
+								<input type="text" class="form-control"
+									ng-model="personalDetail.startdate " placeholder="START DATE"
+									jqdatepicker />
+							</div>
+
+							<div class="form-group ">
+								<input type="text" class="form-control"
+									ng-model="personalDetail.enddate " placeholder="END DATE"
+									jqdatepicker />
+							</div>
+
+							<div class="form-group ">
+								<div class="pull-left">
+									<label class="control-label " for="frequency">
+										FREQUENCY </label>
+								</div>
+								<div>
+									<select class="stylish-select"
+										ng-model="personalDetail.frequency"
+										ng-options="item for item in names">
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group ">
+								<div class="pull-left">
+									<label class="control-label " for="participants">
+										PARTICIPANTS </label>
+								</div>
+								<div>
+									<md-input-container> <md-select
+										class="stylish-select" ng-model="personalDetail.users.id"
+										multiple=""> <md-optgroup label="Names">
+									<md-option ng-value="topping.id"
+										ng-repeat="topping in personalDetail.users">{{topping.uidname}}</md-option>
+									</md-optgroup> </md-select> </md-input-container>
+								</div>
+							</div>
+
+							<div class="form-group ">
+								<div class="pull-left">
+									<label class="control-label " for="multiple"> MULTIPLE
+										PARTICIPANTS </label>
+								</div>
+								<div>
+									<select class="stylish-select"
+										ng-model="personalDetail.multiple"
+										ng-options="item for item in multiple">
+									</select>
+								</div>
+							</div>
+
+							</br>
+
+							<div class="form-group">
+								<input ng-hide="!personalDetails1.length" type="button"
+									class="btn btn-block btn-success "
+									ng-click="addstatus(personalDetail)" value="Save">
+							</div>
+
+						</form>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div ng-show="tabs.isSet(4)" ng-controller="showChart">
+				<h4>Biweekly Report</h4>
+
+
+				<div ng-cloak="" class="datepickerdemoBasicUsage">
+					<md-content layout-padding="">
+
+					<div layout-gt-xs="row">
+						<div flex-gt-xs="">
+							<h4>Start Date</h4>
+							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+						</div>
+						<div flex-gt-xs="">
+							<h4>End Date</h4>
+							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+						</div>
+
+						<div flex-gt-xs="">
+
+							<input button class="btn btn-primary" ng-click="retriveReport()"
+								type="submit"></input>
+						</div>
+
+
+					</div>
+
+
+					</md-content>
+				</div>
+
+
+
+
+
+				<fusioncharts ng-hide="demo" id="mychartcontainer"
+					chartid="angularChart" width="100%" height="500" type="column2d"
+					dataSource="{{dataSource}}" events="events">Awesome
+				Chart on its way!</fusioncharts>
+
+				<br> <br> <br>
+				<div class="statusbar" style="">{{ selectedValue }}</div>
+
+				<br> <br> <br>
+
+
+
+
+
+			</div>
+
+
+
+
+
+		</div>
+	</div>
+</body>
+
+</html>

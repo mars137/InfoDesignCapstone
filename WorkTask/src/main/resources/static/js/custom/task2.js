@@ -14,7 +14,7 @@ console.log("inside functionlityu");
 
 
  if(newValue==3)
-      {
+      {    
             $scope.$emit('CallAnotherParentMethod',{});
 }
 
@@ -55,6 +55,8 @@ $scope.check=function(user)
   var d = new Date();
    var curr_date = d.getDate();
    var curr_month = d.getMonth() + 1; //Months are zero based
+   if(curr_month<10)
+	   curr_month="0"+curr_month;
     var curr_year = d.getFullYear();
     var comdate=curr_year+"-"+curr_month+"-"+curr_date;
  if (user=== comdate)
@@ -184,7 +186,7 @@ $scope.counter = 0;
   $scope.user = [{ }];
    
 
- $scope.getNames=function(){
+ //$scope.getNames=function(){
   var parameters = {
                 id: lastVal
               //  startDate=,
@@ -205,7 +207,7 @@ $scope.counter = 0;
             });
      
 
-}
+//}
 
         $scope.remove = function(){
             var newDataList=[];
@@ -217,38 +219,38 @@ $scope.counter = 0;
             }); 
             $scope.personalDetails1 = newDataList;
         };
-     $scope.addNew = function(inc){
-      $scope.personalDetails1=[{module:''}];
-              $scope.counter += inc;
-            $scope.personalDetails1.push({ 
-                'assignename' : '',
-				
-				'module' :'',
-                
-				'startdate':'',
-                 'enddate':'',
-				 'frequency':'',
-				  'users':[{
-            "id": 1,
-            "name": "Varun",
-        }, {
-            "id": 3,
-            "name": "Neetika",
-        }, {
-            "id": 5,
-            "name": "Rini"
-        }],
-		
-		"multiple":""
-            });
-            if($scope.personalDetails1[0].module=='')
-            $scope.personalDetails1.shift(); 
-        };
+  
+        
+        
+
 
  $rootScope.$on("CallAnotherParentMethod", function(){
    $scope.counter=0;
-  $scope.personalDetails1=[{}];
-        //   $scope.addNew(1);
+ //  $scope.getNames();
+  $scope.personalDetail1=[{     'assignename' : '',
+		
+		'module' :'',
+    
+		'startdate':'',
+     'enddate':'',
+		 'frequency':'',
+		  /*'users':[{
+"id": 1,
+"name": "Varun",
+}, {
+"id": 3,
+"name": "Vat",
+}, {
+"id": 5,
+"name": "Vasu"
+}],*/
+
+		 'users':$scope.user,
+		 
+"multiple":""
+	}];
+       
+  
         });
 
 
@@ -273,7 +275,7 @@ var dataObj = [{
 		}];
       var s=$scope.counter;
       
-	  for(var i=$scope.personalDetails1.length-1;i>$scope.personalDetails1.length-1-s;i--)
+/*	  for(var i=$scope.personalDetails1.length-1;i>$scope.personalDetails1.length-1-s;i--)
 	  {            if($scope.personalDetails1[i].module!='')
 		   dataObj.push( {
 				'assignename' : $scope.personalDetails1[i].assignename,
@@ -287,13 +289,40 @@ var dataObj = [{
 				 'multipleParticipants':$scope.personalDetails1[i].multiple,
 				 'login_id':$scope.uid,
           'taskName' :$scope.personalDetails1[i].module
+	  })};	*/
+	  
+	  
+	  
+	 
+	  {            if($scope.personalDetail1[0].module!='')
+		   dataObj.push( {
+				'assignename' : $scope.personalDetail1[0].assignename,
+				
+			
+                
+				'startDate':$scope.personalDetail1[0].startdate,
+                 'endDate':$scope.personalDetail1[0].enddate,
+				 'frequency':$scope.personalDetail1[0].frequency,
+				 'name':$scope.personalDetail1[0].users.uid,
+				 'multipleParticipants':1,
+				 'login_id':$rootScope.uid,
+          'taskName' :$scope.personalDetail1[0].module
 	  })};	
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
        dataObj=JSON.stringify(dataObj);
       dataObj=JSON.parse(dataObj);
 		var res = $http.post('http://localhost:8080/insert', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
 alert(data);
+$scope.personalDetail1 = angular.copy($scope.initial);
 		});
 		res.error(function(data, status, headers, config) {
 			alert( "failure message: " + JSON.stringify({data: data}));

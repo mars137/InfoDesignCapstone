@@ -97,12 +97,12 @@
 
 			<div ng-show="tabs.isSet(3)" ng-controller="assign">
 				<div class="row">
-					<div
+					<div   ng-repeat="personalDetail in personalDetail1"
 						class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-12 col-xs-12">
 						<form ng-submit="addNew(1)">
 							<div class="form-group ">
 								<input class="form-control" id="task_name"
-									" ng-model="personalDetail.module" placeholder="TASK NAME"
+									 ng-model="personalDetail.module" placeholder="TASK NAME"
 									type="text" />
 							</div>
 
@@ -138,10 +138,10 @@
 								</div>
 								<div>
 									<md-input-container> <md-select
-										class="stylish-select" ng-model="personalDetail.users.id"
+										class="stylish-select" ng-model="personalDetail.users.uid"
 										multiple=""> <md-optgroup label="Names">
-									<md-option ng-value="topping.id"
-										ng-repeat="topping in personalDetail.users">{{topping.name}}</md-option>
+									<md-option ng-value="topping.uid"
+										ng-repeat="topping in personalDetail.users">{{topping.uidname}}</md-option>
 									</md-optgroup> </md-select> </md-input-container>
 								</div>
 							</div>
@@ -162,7 +162,7 @@
 							</br>
 
 							<div class="form-group">
-								<input ng-hide="!personalDetails1.length" type="button"
+								<input ng-hide="!personalDetail1.length" type="button"
 									class="btn btn-block btn-success "
 									ng-click="addstatus(personalDetail)" value="Save">
 							</div>

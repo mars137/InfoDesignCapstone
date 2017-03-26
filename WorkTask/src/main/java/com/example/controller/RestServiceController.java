@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.MediaType;
+
+import com.example.Dao.AddStatusDao;
 import com.example.Dao.UpdateStatusDAO;
 import com.example.bean.AddStatus;
 import com.example.bean.UpdateStatus;
@@ -27,7 +29,8 @@ public class RestServiceController {
 	@Autowired
 	AddTask add;
 	
-	
+	@Autowired
+	AddStatusDao addTask;
 	
 	
 	
@@ -39,6 +42,18 @@ public class RestServiceController {
 		
 		return up;
 	}
+	
+	
+	@RequestMapping(value="/getNames" ,method=RequestMethod.GET)  
+	public List<AddStatus> getName(@RequestParam(value="id") int id)
+	{
+		List<AddStatus> up = addTask.getName(id);
+		
+		return up;
+	}
+	
+	
+	
 	//@CrossOrigin(origins = "http://localhost:80/")
 	@RequestMapping(value="/editstatus" ,method=RequestMethod.POST,consumes = MediaType.APPLICATION_JSON_VALUE)  
 	public @ResponseBody String update(@RequestBody UpdateStatus updatestaus)

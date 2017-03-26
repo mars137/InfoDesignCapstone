@@ -4,4 +4,5 @@
 <fullyQualifiedTypeName name="com.example.bean.Login"/>
 <fullyQualifiedTypeName name="com.example.Dao.LoginDao"/>
 <fullyQualifiedTypeName name="java.sql.Types"/>
+<fullyQualifiedTypeName name="com.example.Dao.AddStatusDao"/>
 </qualifiedTypeNameHistroy>

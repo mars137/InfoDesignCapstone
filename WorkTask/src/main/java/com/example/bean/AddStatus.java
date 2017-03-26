@@ -19,6 +19,21 @@ public class AddStatus {
 	private int multipleParticipants;
 	private int login_id;
 	private int task_id;
+	public int getUID() {
+		return UID;
+	}
+	public void setUID(int uID) {
+		UID = uID;
+	}
+	public String getUIDNAME() {
+		return UIDNAME;
+	}
+	public void setUIDNAME(String uIDNAME) {
+		UIDNAME = uIDNAME;
+	}
+	private int UID;
+	private String UIDNAME;
+	
 	public int getTask_id() {
 		return task_id;
 	}

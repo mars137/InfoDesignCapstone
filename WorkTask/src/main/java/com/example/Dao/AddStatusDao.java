@@ -3,6 +3,7 @@ package com.example.Dao;
 
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
@@ -50,6 +52,29 @@ public void setDataSource(DataSource dataSource) {
   }
 
 
+  
+  
+	public List<AddStatus> getName(int id)
+	{
+		
+		
+		String sql = "select a.uid,a.name from customers_auth a where a.group_id =(select group_id from customers_auth where uid =?)";
+		
+		return jdbcTemplate.query(sql, new Object[]{id}, new RowMapper<AddStatus>(){
+			@Override
+			
+			public AddStatus mapRow(ResultSet rs, int rownumber) throws SQLException
+			{
+				AddStatus ad = new AddStatus();
+			// ad.
+				ad.setUID(rs.getInt(1));
+				ad.setUIDNAME(rs.getString(2));
+				return ad;
+			}
+		});
+		//return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<UpdateStatus>(UpdateStatus.class));
+	}
+  
 	public void insertBatch(final List<AddStatus> ls) {
 
 		  String sql = "insert into task_status " +

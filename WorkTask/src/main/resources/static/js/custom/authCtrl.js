@@ -35,6 +35,8 @@ app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
 //for login
 app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
 	console.log("Login function");
+	 $window.sessionStorage["uid"]=null;
+	 $window.sessionStorage["email"]=null;
 	//$scope.login = {email:'',password:''};
     $scope.doLogin = function (customer) {
     	

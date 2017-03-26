@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
+import com.example.bean.AddStatus;
 import com.example.bean.UpdateStatus;
 @Configuration
 @Component
@@ -45,6 +46,11 @@ public class UpdateStatusDAO {
 		});
 		//return template.queryForObject(sql, new Object[]{id},new BeanPropertyRowMapper<UpdateStatus>(UpdateStatus.class));
 	}
+	
+
+	
+	
+	
 	
 	public int update(UpdateStatus upd)
 	{
