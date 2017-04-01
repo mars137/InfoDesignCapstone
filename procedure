@@ -1,0 +1,16 @@
+DELIMITER $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `retrive_id`(
+
+IN taskname Varchar(140),
+OUT id int (10) )
+BEGIN
+DECLARE task INT DEFAULT 0;
+	select count(task_id) into task from task_master where task_name =taskname;
+    insert into temp (count, idtemp) values(task,'count');
+    IF task =0 then
+    insert into task_master(task_name) values(taskname);
+     end if;
+   
+    select task_id into id from task_master where task_name =taskname limit 1;
+END$$
+DELIMITER ;
