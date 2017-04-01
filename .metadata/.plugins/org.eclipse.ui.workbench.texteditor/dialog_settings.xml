@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Val" key="selection"/>
+		<item value="check" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="check"/>
 			<item value="Val"/>
 			<item value="alert"/>
 			<item value="ng-cookies"/>
@@ -15,7 +16,6 @@
 			<item value="ng-route"/>
 			<item value="ng-table"/>
 			<item value="editemp"/>
-			<item value="task"/>
 		</list>
 		<list key="replacehistory">
 			<item value=""/>
