@@ -1,8 +1,13 @@
 
 
 
-app.controller('TabController', ['$scope','$rootScope',function($scope){
-  
+app.controller('TabController', ['$scope','$rootScope',function($scope,$rootScope){
+	$rootScope.portfolio=true;
+	$rootScope.about=true;
+	$rootScope.contact=true;
+	$rootScope.errandify=true;
+	$rootScope.view=true;
+  	$rootScope.header=true;
 console.log("inside functionlityu");
     this.setTab = function(newValue){
       this.tab = newValue;
@@ -169,8 +174,7 @@ var doo = new Date(user.due_date);
 
 
 
-
-  app.controller("assign", ['$rootScope','$scope','$http','$window',function($rootScope,$scope,$http,$window) {
+  app.controller("assign", ['$rootScope','$scope','$http','$window',function($rootScope,$scope,$http,$window,$mdDateLocale) {
     var lastVal="";
     var p;
 	 lastVal= $window.sessionStorage.getItem("uid");
@@ -275,33 +279,34 @@ var dataObj = [{
 		}];
       var s=$scope.counter;
       
-/*	  for(var i=$scope.personalDetails1.length-1;i>$scope.personalDetails1.length-1-s;i--)
-	  {            if($scope.personalDetails1[i].module!='')
-		   dataObj.push( {
-				'assignename' : $scope.personalDetails1[i].assignename,
-				
-			
-                
-				'startDate':$scope.personalDetails1[i].startdate,
-                 'endDate':$scope.personalDetails1[i].enddate,
-				 'frequency':$scope.personalDetails1[i].frequency,
-				 'name':$scope.personalDetails1[i].users.id,
-				 'multipleParticipants':$scope.personalDetails1[i].multiple,
-				 'login_id':$scope.uid,
-          'taskName' :$scope.personalDetails1[i].module
-	  })};	*/
+      
 	  
 	  
 	  
 	 
 	  {            if($scope.personalDetail1[0].module!='')
+		    
+		//  Date start =$scope.personalDetail1[0].startdate;
+	//    var end =$scope.personalDetail1[0].enddate;
+	    var day = $scope.personalDetail1[0].startdate.getDate();
+	    var monthIndex = $scope.personalDetail1[0].startdate.getMonth();
+	    var year = $scope.personalDetail1[0].startdate.getFullYear();
+
+	    var day1 = $scope.personalDetail1[0].enddate.getDate();
+	    var monthIndex1 = $scope.personalDetail1[0].enddate.getMonth();
+	    var year1 = $scope.personalDetail1[0].enddate.getFullYear();
+	    
+	    var  start= day + '/' + (monthIndex + 1) + '/' + year;
+		  
+	  var  end= day1 + '/' + (monthIndex1 + 1) + '/' + year1;
+		  
 		   dataObj.push( {
 				'assignename' : $scope.personalDetail1[0].assignename,
 				
 			
                 
-				'startDate':$scope.personalDetail1[0].startdate,
-                 'endDate':$scope.personalDetail1[0].enddate,
+				'startDate':start,
+                 'endDate':end,
 				 'frequency':$scope.personalDetail1[0].frequency,
 				 'name':$scope.personalDetail1[0].users.uid,
 				 'multipleParticipants':1,

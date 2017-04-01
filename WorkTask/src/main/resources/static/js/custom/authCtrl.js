@@ -13,6 +13,7 @@ app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
         	$rootScope.contact=true;
         	$rootScope.errandify=true;
         	$rootScope.view=true;
+        	$rootScope.header=true;
    		//	swal("It seems you forgot your login credentials!", "Try Again!", "error")
    			swal({
    			  title: "Congratulations",

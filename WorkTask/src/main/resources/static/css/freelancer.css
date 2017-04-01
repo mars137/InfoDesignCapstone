@@ -2,6 +2,7 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  top: 0px !important;
 }
 p {
   font-size: 20px;
