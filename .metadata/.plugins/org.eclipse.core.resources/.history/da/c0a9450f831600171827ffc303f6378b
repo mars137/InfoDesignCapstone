@@ -118,16 +118,16 @@
 									jqdatepicker />
 							</div> -->
                                          <div ng-cloak="" class="datepickerdemoBasicUsage">
-					<md-content layout-padding="" style="background-color:lightyellow !important;">
+					<md-content layout-padding="" style="backgroud-color:lightyellow;">
 
 					<!-- <div layout-gt-xs="row"> -->
-						<div flex-gt-xs="" style="margin-right:410px;">
-							<h4><font color="#1275BC">Start Date</font></h4>
+						<div flex-gt-xs="">
+							<h4>Start Date</h4>
 							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
 						</div>
 						
-						<div flex-gt-xs="" style="margin-right:428px;">
-							<h4><font color="#1275BC">End Date</font></h4>
+						<div flex-gt-xs="">
+							<h4>End Date</h4>
 							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
 						</div>
 						</md-content>

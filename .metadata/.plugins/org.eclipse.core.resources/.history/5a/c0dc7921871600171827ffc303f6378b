@@ -122,12 +122,12 @@
 
 					<!-- <div layout-gt-xs="row"> -->
 						<div flex-gt-xs="" style="margin-right:410px;">
-							<h4><font color="#1275BC">Start Date</font></h4>
+							<h4>Start Date</h4>
 							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
 						</div>
 						
 						<div flex-gt-xs="" style="margin-right:428px;">
-							<h4><font color="#1275BC">End Date</font></h4>
+							<h4>End Date</h4>
 							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
 						</div>
 						</md-content>

@@ -106,7 +106,7 @@
 									type="text" />
 							</div>
 
-							<!-- <div class="form-group ">
+							<div class="form-group ">
 								<input type="text" class="form-control"
 									ng-model="personalDetail.startdate " placeholder="START DATE"
 									jqdatepicker />
@@ -116,22 +116,8 @@
 								<input type="text" class="form-control"
 									ng-model="personalDetail.enddate " placeholder="END DATE"
 									jqdatepicker />
-							</div> -->
-                                         <div ng-cloak="" class="datepickerdemoBasicUsage">
-					<md-content layout-padding="" style="background-color:lightyellow !important;">
+							</div>
 
-					<!-- <div layout-gt-xs="row"> -->
-						<div flex-gt-xs="" style="margin-right:410px;">
-							<h4><font color="#1275BC">Start Date</font></h4>
-							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
-						</div>
-						
-						<div flex-gt-xs="" style="margin-right:428px;">
-							<h4><font color="#1275BC">End Date</font></h4>
-							<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
-						</div>
-						</md-content>
-						</div>
 							<div class="form-group ">
 								<div class="pull-left">
 									<label class="control-label " for="frequency">
