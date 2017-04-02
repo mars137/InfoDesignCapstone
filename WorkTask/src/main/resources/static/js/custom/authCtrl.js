@@ -17,7 +17,7 @@ app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
    		//	swal("It seems you forgot your login credentials!", "Try Again!", "error")
    			swal({
    			  title: "Congratulations",
-   			  text: "Your profile has been created.Login to get started",
+   			  text: "Your profile has been created. Login to get started!!",
    			//  timer:20000,
    			 imageUrl: "images/homepage/Minion.gif"
    			});
@@ -70,7 +70,7 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
    			else{
    				swal({
    	   			  title: "Invalid Credentials!",
-   	   			  text: "Please enter correct credentials!!!!.",
+   	   			  text: "Looks like you have forgotton your credentials!!!!.",
    	   			//  timer:20000,
    	   			 imageUrl: "images/login/sadminion.gif"
    	   			});
