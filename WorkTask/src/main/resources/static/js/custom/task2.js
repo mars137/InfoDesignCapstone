@@ -182,9 +182,9 @@ var doo = new Date(user.due_date);
 	 lastVal= $window.sessionStorage.getItem("uid");
 	 $rootScope.uid= $window.sessionStorage.getItem("uid");
     //  lastVal = $cookieStore.get('lastValue');
-alert("uid"+ lastVal);
+//alert("uid"+ lastVal);
 
-
+$scope.minDate = new Date();
 	//  var a =$scope.uid;
 $scope.counter = 0;
  $scope.names = ["Daily", "Weekly", "Monthly"];

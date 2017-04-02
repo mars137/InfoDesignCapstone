@@ -1,0 +1,4 @@
+CREATE TABLE `temp` (
+  `count` int(11) DEFAULT NULL,
+  `idtemp` varchar(45) DEFAULT NULL
+)
