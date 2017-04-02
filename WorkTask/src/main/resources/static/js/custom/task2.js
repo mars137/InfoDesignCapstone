@@ -180,7 +180,7 @@ var doo = new Date(user.due_date);
 	 lastVal= $window.sessionStorage.getItem("uid");
 	 $rootScope.uid= $window.sessionStorage.getItem("uid");
     //  lastVal = $cookieStore.get('lastValue');
-alert("uid"+ lastVal);
+//alert("uid"+ lastVal);
 
 
 	//  var a =$scope.uid;

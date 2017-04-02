@@ -19,7 +19,7 @@ app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
    			  title: "Congratulations",
    			  text: "Your profile has been created.Login to get started",
    			//  timer:20000,
-   			 // imageUrl: "images/homepage/Minion.gif"
+   			 imageUrl: "images/homepage/Minion.gif"
    			});
    			
    			$location.path('login');
@@ -51,7 +51,7 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
 	   			  title: "Welcome!",
 	   			  text: "Get your work done!!!!.",
 	   			//  timer:20000,
-	   			 // imageUrl: "images/homepage/Minion.gif"
+	   			 imageUrl: "images/login/happyminion.jpg"
 	   			});
    				$scope.message = data;
    	   			$rootScope.portfolio=true;
@@ -72,7 +72,7 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
    	   			  title: "Invalid Credentials!",
    	   			  text: "Please enter correct credentials!!!!.",
    	   			//  timer:20000,
-   	   			 imageUrl: "images/homepage/Minion.gif"
+   	   			 imageUrl: "images/login/sadminion.gif"
    	   			});
    	   			
    	   			$location.path('login');  	   		
