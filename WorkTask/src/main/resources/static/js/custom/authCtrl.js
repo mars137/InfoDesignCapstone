@@ -75,7 +75,7 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
    	   			 imageUrl: "images/login/sadminion.gif"
    	   			});
    	   			
-   	   			$location.path('login');  	   		
+   	   			$location.path('home');  	   		
    	   		delete $window.sessionStorage.session;
    			}
    		});
