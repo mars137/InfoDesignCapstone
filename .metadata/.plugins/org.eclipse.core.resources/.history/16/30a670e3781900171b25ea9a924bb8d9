@@ -12,6 +12,17 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<<<<<<< HEAD
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li class="page-scroll">
+                        <a href="home">Logout</a>
+                    </li>
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                </ul>
+=======
                <ul class="nav navbar-nav navbar-right">
                   <li class="page-scroll">
                      <a href="#">Logout</a>
@@ -20,6 +31,7 @@
                      <a href="#page-top"></a>
                   </li>
                </ul>
+>>>>>>> c9e5a0546131949784af3215344eb19dfce9e687
             </div>
             <!-- /.navbar-collapse -->
          </div>
