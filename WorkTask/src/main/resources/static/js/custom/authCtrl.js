@@ -10,7 +10,7 @@ app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
    			$scope.message = data;
    			$rootScope.portfolio=true;
         	$rootScope.about=true;
-        	$rootScope.contact=true;
+        	$rootScope.contact=true; 
         	$rootScope.errandify=true;
         	$rootScope.view=true;
         	$rootScope.header=true;
