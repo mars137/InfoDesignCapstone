@@ -72,7 +72,7 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
    	   			  title: "Invalid Credentials!",
    	   			  text: "Looks like you have forgotton your credentials!!!!.",
    	   			//  timer:20000,
-   	   			 imageUrl: "images/login/sadminion.gif"
+   	   			 imageUrl: "images/login/sadminion.jpg"
    	   			});
    	   			
    	   			$location.path('home');  	   		
