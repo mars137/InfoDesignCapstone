@@ -15,8 +15,8 @@
                         <br/>
                         <form name="signupForm" class="form-horizontal" role="form"  novalidate>
                             <div class="form-group">
-                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="email">Email</label>
-                                <div class="col-sm-7 col-xs-10">
+                                <label class="col-sm-3 hidden-xs control-label no-padding-right" for="email">Email</label>
+                                <div class="col-sm-7 col-xs-10 col-md-offset-0 col-xs-offset-1">
                                     <span class="block input-icon input-icon-right">
                                         <input type="email" 
                                         class="form-control"
@@ -30,8 +30,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="password">Password</label>
-                                <div class="col-sm-7 col-xs-10">
+                                <label class="col-sm-3 hidden-xs control-label no-padding-right" for="password">Password</label>
+                                <div class="col-sm-7 col-xs-10 col-md-offset-0 col-xs-offset-1">
                                     <span class="block input-icon input-icon-right">
                                 <input type="password" 
                                 class="form-control" 
@@ -44,8 +44,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="password2">Confirm Password</label>
-                                <div class="col-sm-7 col-xs-10">
+                                <label class="col-sm-3 hidden-xs control-label no-padding-right" for="password2">Confirm Password</label>
+                                <div class="col-sm-7 col-xs-10 col-md-offset-0 col-xs-offset-1">
                                     <span class="block input-icon input-icon-right">
                                 <input type="password" 
                                 class="form-control" 
@@ -62,8 +62,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="name">First Name</label>
-                                <div class="col-sm-7 col-xs-10">
+                                <label class="col-sm-3 hidden-xs control-label no-padding-right" for="name">First Name</label>
+                                <div class="col-sm-7 col-xs-10 col-md-offset-0 col-xs-offset-1">
                                     <span class="block input-icon input-icon-right">
                                 <input type="text" 
                                 class="form-control" 
@@ -74,16 +74,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="phone">Last Name</label>
-                                <div class="col-sm-7 col-xs-10">
+                                <label class="col-sm-3 hidden-xs control-label no-padding-right" for="phone">Last Name</label>
+                                <div class="col-sm-7 col-xs-10 col-md-offset-0 col-xs-offset-1">
                                     <span class="block input-icon input-icon-right">
                                 <input type="text" class="form-control" placeholder="Last Name" name="l_name" ng-model="signup.l_name" ng-required="true"/>
                             </span>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 col-xs-2 control-label no-padding-right" for="address">Group Code</label>
-                                <div class="col-sm-7 col-xs-10">
+                                <label class="col-sm-3 hidden-xs control-label no-padding-right" for="address">Group Code</label>
+                                <div class="col-sm-7 col-xs-10 col-md-offset-0 col-xs-offset-1">
                                     <span class="block input-icon input-icon-right">
                                 <input type="text" 
                                 class="form-control" 
@@ -93,12 +93,14 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="llb col-sm-7 ">Already have an account? <a href="#/login">SignIn</a></div>
-                                <div class="col-sm-3">
-                                    <button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">
+                                
+                                <div class="col-sm-4 col-sm-offset-4">
+                                    <button type="submit" class=" btn btn-block btn-success" ng-click="signUp(signup)" data-ng-disabled="signupForm.$invalid">
                                         Sign Up
                                     </button>
+                                <p style="font-size:90%">Already have an account? <a href="#/login">SignIn</a></p>
                                 </div>
+                                
                             </div>
                             </fieldset>
                            

@@ -8,21 +8,13 @@ app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
    		var res = $http.post('http://localhost:8080/RegisterUser', dataObj);
    		res.success(function(data, status, headers, config) {
    			$scope.message = data;
-   			$rootScope.portfolio=true;
-        	$rootScope.about=true;
-        	$rootScope.contact=true; 
-        	$rootScope.errandify=true;
-        	$rootScope.view=true;
-        	$rootScope.header=true;
-   		//	swal("It seems you forgot your login credentials!", "Try Again!", "error")
+   			
    			swal({
    			  title: "Congratulations",
    			  text: "Your profile has been created. Login to get started!!",
    			//  timer:20000,
    			 imageUrl: "images/homepage/Minion.gif"
    			});
-   			
-   			$location.path('login');
    			
    		});
    		res.error(function(data, status, headers, config) {
@@ -62,8 +54,7 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
 	   			$location.path('dashboard');
 	   			
 	   			//stores information in local storage
-	   		//	$window.sessionStorage.session = {uid:data,isLogged:'1',email:customer.email} ;
-	   			
+	   		
 	   		 $window.sessionStorage.setItem("uid",data);
 	   		 $window.sessionStorage.setItem("email",customer.email);
    			}
@@ -74,8 +65,7 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
    	   			//  timer:20000,
    	   			 imageUrl: "images/login/sadminion.jpg"
    	   			});
-   	   			
-   	   			$location.path('home');  	   		
+   	   			  	   		
    	   		delete $window.sessionStorage.session;
    			}
    		});
