@@ -83,7 +83,7 @@ $scope.check=function(user)
   var config = {
                 params: parameters
             };
-   $http.get('http://localhost:8080/editemp/', config)
+   $http.get('http://35.161.33.203:8080/editemp/', config)
             .success(function (data, status, headers, config) {
                 $scope.Details = data;
             })
@@ -130,7 +130,7 @@ alert(user.status);
 var doo = new Date(user.due_date);
 //user.due_date=new Date(doo.getTime()+doo.getTimezoneOffset()*60000);
 
- $http.post('http://localhost:8080/editstatus/', p)
+ $http.post('http://35.161.33.203:8080/editstatus/', p)
             .success(function (data, status, headers, config) {
              //  $scope.succcessMessage = data;
                   alert( "success message: " + JSON.stringify({data: data}));
@@ -201,7 +201,7 @@ $scope.counter = 0;
   var config = {
                 params: parameters
             };
-   $http.get('http://localhost:8080/getNames/', config)
+   $http.get('http://35.161.33.203:8080/getNames/', config)
             .success(function (data, status, headers, config) {
                 $scope.user = data;
             })
@@ -325,7 +325,7 @@ var dataObj = [{
 	  
        dataObj=JSON.stringify(dataObj);
       dataObj=JSON.parse(dataObj);
-		var res = $http.post('http://localhost:8080/insert', dataObj);
+		var res = $http.post('http://35.161.33.203:8080/insert', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
 alert(data);
@@ -547,7 +547,7 @@ $scope.check=function(user)
   var config = {
                 params: parameters
             };
-   $http.get('http://localhost:8080/editemp/', config)
+   $http.get('http://35.161.33.203:8080/editemp/', config)
             .success(function (data, status, headers, config) {
                 $scope.Details = data;
             })
@@ -594,7 +594,7 @@ alert(user.status);
 var doo = new Date(user.due_date);
 //user.due_date=new Date(doo.getTime()+doo.getTimezoneOffset()*60000);
 
- $http.post('http://localhost:8080/editstatus/', p)
+ $http.post('http://35.161.33.203:8080/editstatus/', p)
             .success(function (data, status, headers, config) {
              //  $scope.succcessMessage = data;
                   alert( "success message: " + JSON.stringify({data: data}));
@@ -665,7 +665,7 @@ $scope.counter = 0;
   var config = {
                 params: parameters
             };
-   $http.get('http://localhost:8080/getNames/', config)
+   $http.get('http://35.161.33.203:8080/getNames/', config)
             .success(function (data, status, headers, config) {
                 $scope.user = data;
             })
@@ -789,7 +789,7 @@ var dataObj = [{
 	  
        dataObj=JSON.stringify(dataObj);
       dataObj=JSON.parse(dataObj);
-		var res = $http.post('http://localhost:8080/insert', dataObj);
+		var res = $http.post('http://35.161.33.203:8080/insert', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
 alert(data);

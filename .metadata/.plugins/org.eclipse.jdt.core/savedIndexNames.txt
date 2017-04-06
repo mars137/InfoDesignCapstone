@@ -47,7 +47,6 @@ INDEX VERSION 1.129+I:\MIS-Course\semester 4\Design\ProjectCode\InfoDesignCapsto
 3133071618.index
 3022256396.index
 2975834130.index
-728899982.index
 3770247643.index
 954733473.index
 1527096690.index
