@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <syncparticipants>
-<participant displayName="Git (WorkTask)" id="org.eclipse.egit.ui.modelCompareParticipant" secondary_id="1491450394949">
+<participant displayName="Git (WorkTask/src/...main/resources)" id="org.eclipse.egit.ui.modelCompareParticipant" secondary_id="1491452694178">
 <data forceFetch="false" root="false">
-<org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS org.eclipse.team.ui.MODEL_PARTICIPANT_DESCRIPTION="WorkTask" startupAction="none">
+<org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS org.eclipse.team.ui.MODEL_PARTICIPANT_DESCRIPTION="WorkTask/src/...main/resources" startupAction="none">
 <org.eclipse.team.ui.MODEL_PARTICIPANT_REFRESH_SCHEDULE org.eclipse.team.ui.CTX_REFRESHSCHEDULE_ENABLED="false" org.eclipse.team.ui.CTX_REFRESHSCHEDULE_INTERVAL="3600" org.eclipse.team.ui.CTX_REFRESHSCHEDULE_RUNONCE="false"/>
+<org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS modelProviderId="org.eclipse.jdt.ui.modelProvider">
+<mappings>
+<resources resourcePath="/WorkTask/src/main/resources" resourceType="2"/>
+</mappings>
+</org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS>
 <org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS modelProviderId="org.eclipse.core.resources.modelProvider">
 <mappings>
-<resources resourcePath="/WorkTask" resourceType="4"/>
+<resources resourcePath="/WorkTask/src/main/resources" resourceType="2"/>
 </mappings>
 </org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS>
 </org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS>
-<gitSynchronizeData container="I:/MIS-Course/semester 4/Design/ProjectCode/InfoDesignCapstone/RemoteSystemsTempFiles" dstRev="refs/remotes/origin/master" inludeLocal="true" srcRev="HEAD"/>
+<gitSynchronizeData container="I:/MIS-Course/semester 4/Design/ProjectCode/InfoDesignCapstone/RemoteSystemsTempFiles" dstRev="FETCH_HEAD" inludeLocal="true" srcRev="HEAD">
+<includedPaths>
+<path path="I:/MIS-Course/semester 4/Design/ProjectCode/InfoDesignCapstone/WorkTask/src/main/resources"/>
+</includedPaths>
+</gitSynchronizeData>
 </data>
 </participant>
 </syncparticipants>

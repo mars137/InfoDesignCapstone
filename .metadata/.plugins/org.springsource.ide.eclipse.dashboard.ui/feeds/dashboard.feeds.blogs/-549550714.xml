@@ -5,7 +5,107 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2017-04-05T06:04:48Z</updated>
+  <updated>2017-04-05T20:27:53Z</updated>
+  <entry>
+    <title>Spring Integration 5.0 Milestone 3 Available</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/04/05/spring-integration-5-0-milestone-3-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Artem Bilan</name>
+    </author>
+    <id>tag:spring.io,2017-04-05:2891</id>
+    <updated>2017-04-05T20:27:53Z</updated>
+    <content type="html">&lt;div class="paragraph"&gt;
+&lt;p&gt;The Spring Integration team is pleased to announce that the third milestone for the Spring Integration 5.0 release (&lt;code&gt;5.0.0.M3&lt;/code&gt;) is now available.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10121&amp;amp;version=15860"&gt;53 JIRAs&lt;/a&gt; (and some GitHub issues) made into this release, including bug fixes and a number of new features.
+Some highlights since the previous &lt;a href="https://spring.io/blog/2017/01/05/spring-integration-5-0-milestone-2-available"&gt;Milestone 2&lt;/a&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="ulist"&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Initial implementation for a Spring Integration Testing Framework - the &lt;code&gt;@SpringIntegrationTest&lt;/code&gt; annotation for test classes and &lt;code&gt;MockIntegration&lt;/code&gt; factory help you to write unit tests for integration flows and channel adapters.
+We intend to flush out this capability with more features before GA, including more mocking, verifications and some &lt;code&gt;send-and-receive&lt;/code&gt; utilities to test components in isolation.
+Feedback is welcome!&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;POJO handler method invocations (&lt;code&gt;@ServiceActivator&lt;/code&gt;, &lt;code&gt;@Transformer&lt;/code&gt; etc., or such methods invoked from XML definitions) now use &lt;code&gt;InvocableHandlerMethod&lt;/code&gt; by default.
+Together with the &lt;code&gt;ConfigurableCompositeMessageConverter&lt;/code&gt; and &lt;code&gt;@Default&lt;/code&gt; utilities that allows us to implement conditional method invocation scenarios based on the Content-Type and target method arguments resolution.
+To restore the previous SpEL-based behavior, the &lt;code&gt;@UseSpelInvoker&lt;/code&gt; method-level annotation is provided.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A based on the WebFlux &lt;code&gt;WebClient&lt;/code&gt; &lt;code&gt;ReactiveHttpRequestExecutingMessageHandler&lt;/code&gt; implementation is provided.
+Together with a &lt;code&gt;ReactiveChannel&lt;/code&gt; as an &lt;code&gt;outputChannel&lt;/code&gt; options it provides backpressure manner for remote HTTP service consumption.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The (S)FTP (and AWS S3) Inbound Channel Adapters can now restore file tree locally.
+For that purpose a new, &lt;code&gt;Files.walk()&lt;/code&gt; based, &lt;code&gt;RecursiveDirectoryScanner&lt;/code&gt; is introduced.
+The &lt;code&gt;useWatchService&lt;/code&gt; option is also provided.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Web Services Gateways now can exchange &lt;code&gt;WebServiceMessage&lt;/code&gt; s directly as the inbound/outbound &lt;code&gt;payload&lt;/code&gt;.
+This allows the support of MTOM via direct access to &lt;code&gt;WebServiceMessage&lt;/code&gt; properties.
+The &lt;code&gt;UnmarshallingTransformer&lt;/code&gt; can now process a &lt;code&gt;MimeMessage&lt;/code&gt; as the payload to unmarshal it into an object graph with attachments.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The reply producing &lt;code&gt;MessageHandler&lt;/code&gt; now has a fallback to the &lt;code&gt;replyChannel&lt;/code&gt; header from the reply message, if there is no &lt;code&gt;outputChannel&lt;/code&gt; or &lt;code&gt;replyChannel&lt;/code&gt; in the request message headers.
+This allows the implementation of business process-like scenarios when the next step is determined by the result of current calculations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We would like to thank several community members for their ongoing active contributions to the framework; scan &lt;a href="https://github.com/spring-projects/spring-integration/commits/v5.0.0.M3"&gt;the commits&lt;/a&gt; and give them some kudos!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;We are working towards the M4 release in time for the Spring Boot 2.0 milestone; with the GA in early summer; shortly after the Spring Framework 5.0 release.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;For a complete list of changes in &lt;code&gt;5.0&lt;/code&gt;, also see the &lt;a href="http://docs.spring.io/spring-integration/docs/5.0.0.M3/reference/html/whats-new.html"&gt;What&amp;#8217;s New&lt;/a&gt; chapter in the reference manual.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="paragraph"&gt;
+&lt;p&gt;&lt;a href="http://projects.spring.io/spring-integration/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/INT"&gt;JIRA&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-integration/blob/master/CONTRIBUTING.adoc"&gt;Contributing&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-integration"&gt;Help&lt;/a&gt; | &lt;a href="https://gitter.im/spring-projects/spring-integration"&gt;Chat&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot's new Gradle plugin</title>
+    <link rel="alternate" href="https://spring.io/blog/2017/04/05/spring-boot-s-new-gradle-plugin" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Andy Wilkinson</name>
+    </author>
+    <id>tag:spring.io,2017-04-03:2887</id>
+    <updated>2017-04-05T08:57:00Z</updated>
+    <content type="html">&lt;p&gt;One of the main themes of Spring Boot 2.0 M1 is a &lt;a href="https://github.com/spring-projects/spring-boot/issues?utf8=?&amp;q=label%3A%22theme%3A%20gradle-plugin%22%20milestone%3A2.0.0.M1%20"&gt;range of significant improvements to its Gradle plugin&lt;/a&gt;. Many of those improvements have just been merged and are available in the latest Spring Boot snapshots. There&amp;rsquo;s a few weeks until Spring Boot 2.0.0.M1 will be released at the beginning of May and we&amp;rsquo;d love to hear your early feedback on the new plugin before then.&lt;/p&gt;
+&lt;p&gt;You can read more about the plugin&amp;rsquo;s capabilities in its &lt;a href="https://docs.spring.io/spring-boot/docs/2.0.0.BUILD-SNAPSHOT/gradle-plugin/reference"&gt;reference&lt;/a&gt; and &lt;a href="https://docs.spring.io/spring-boot/docs/2.0.0.BUILD-SNAPSHOT/gradle-plugin/api"&gt;API&lt;/a&gt; documentation.&lt;/p&gt;&lt;h2&gt;&lt;a href="#trying-the-new-plugin" class="anchor" name="trying-the-new-plugin"&gt;&lt;/a&gt;Trying the new plugin&lt;/h2&gt;
+&lt;p&gt;Like the rest of Spring Boot, snapshots for the plugin are published to &lt;a href="https://repo.spring.io/libs-snapshot"&gt;https://repo.spring.io/libs-snapshot&lt;/a&gt;. The easiest way to use a snapshot is to &lt;a href="https://start.spring.io/#!type=gradle-project"&gt;create a new Gradle project on start.spring.io&lt;/a&gt; and select Spring Boot 2.0 snapshots.&lt;/p&gt;
+&lt;p&gt;Alternatively, your &lt;code&gt;build.gradle&lt;/code&gt; should look something like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint groovy"&gt;buildscript {&#xD;
+    ext {&#xD;
+        springBootVersion = &amp;#39;2.0.0.BUILD-SNAPSHOT&amp;#39;&#xD;
+    }&#xD;
+    repositories {&#xD;
+        mavenCentral()&#xD;
+        maven { url &amp;#39;https://repo.spring.io/libs-snapshot&amp;#39; }&#xD;
+    }&#xD;
+    dependencies {&#xD;
+        classpath &amp;quot;org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}&amp;quot;&#xD;
+    }&#xD;
+}&#xD;
+&#xD;
+apply plugin: &amp;#39;java&amp;#39;&#xD;
+apply plugin: &amp;#39;org.springframework.boot&amp;#39;&#xD;
+apply plugin: &amp;#39;io.spring.dependency-management&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;&lt;a href="#building-executable-jars-and-wars" class="anchor" name="building-executable-jars-and-wars"&gt;&lt;/a&gt;Building executable jars and wars&lt;/h3&gt;
+&lt;p&gt;The &lt;code&gt;bootRepackage&lt;/code&gt; task has been replaced with &lt;code&gt;bootJar&lt;/code&gt; and &lt;code&gt;bootWar&lt;/code&gt; tasks for building executable jars and wars respectively. Both tasks extend their equivalent standard Gradle jar or war task, giving you access to all of the usual configuration options and behaviour.&lt;/p&gt;&lt;h3&gt;&lt;a href="#dependency-management" class="anchor" name="dependency-management"&gt;&lt;/a&gt;Dependency management&lt;/h3&gt;
+&lt;p&gt;Spring Boot&amp;rsquo;s Gradle plugin no longer automatically applies the &lt;a href="https://github.com/spring-gradle-plugins/dependency-management-plugin"&gt;dependency management plugin&lt;/a&gt;. Instead, Spring Boot&amp;rsquo;s plugin now reacts to the dependency management plugin being applied by importing the correct version of the &lt;code&gt;spring-boot-dependencies&lt;/code&gt; bom. This gives you more control over how and when dependency management is configured. For most applications applying the dependency management plugin will be sufficient:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint"&gt;apply plugin: &amp;#39;io.spring.dependency-management&amp;#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Please note that the dependency management plugin remains a transitive dependency of &lt;code&gt;spring-boot-gradle-plugin&lt;/code&gt; so there&amp;rsquo;s no need for it to be listed as a &lt;code&gt;classpath&lt;/code&gt; dependency in your &lt;code&gt;buildscript&lt;/code&gt; configuration&lt;/p&gt;&lt;h2&gt;&lt;a href="#providing-feedback" class="anchor" name="providing-feedback"&gt;&lt;/a&gt;Providing feedback&lt;/h2&gt;
+&lt;p&gt;As I said above, there&amp;rsquo;s a few weeks until Spring Boot 2.0.0.M1 is released so now&amp;rsquo;s an excellent opportunity to take the new plugin for a spin and then please let us know what you think.&lt;/p&gt;
+&lt;p&gt;The plugin is still a work in progress. Many things that were not possible with the previous version are made possible by the new version. Also, a few things that were previously possible may no longer be possible, or may require a different approach. In particular, the plugin&amp;rsquo;s DSL has been deliberately stripped back to only cover functionality that we&amp;rsquo;re certain we want.&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;d like to discuss the new capabilities please do so in the comments below or &lt;a href="https://gitter.im/spring-projects/spring-boot"&gt;on Gitter&lt;/a&gt;. If you find a bug or have an idea for some further improvements then please &lt;a href="https://github.com/spring-projects/spring-boot/issues/new"&gt;open an issue on GitHub&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Spring Tips: Creating a Spring Security OAuth Auth Service</title>
     <link rel="alternate" href="https://spring.io/blog/2017/04/05/spring-tips-creating-a-spring-security-oauth-auth-service" />
@@ -78,7 +178,7 @@
     </author>
     <id>tag:spring.io,2017-04-03:2886</id>
     <updated>2017-04-04T01:00:00Z</updated>
-    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in London, UK; Paris, France (for the &lt;a href="http://cfp.devoxx.fr/2017/speaker/josh_long"&gt;epic Devoxx France&lt;/a&gt; event where I&amp;rsquo;ll be speaking with &lt;a href="http://twitter.com/raibledesigns"&gt;my buddy Matt Raible&lt;/a&gt;) and Stuttgart, Germany, where I&amp;rsquo;ll be speaking at conferences and to customers! If you&amp;rsquo;re around, don&amp;rsquo;t hesitate to say &lt;a href="http://twitter.com/starbuxman"&gt;&amp;ldquo;hi&amp;rdquo;!&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in London, UK; Paris, France (for the &lt;a href="http://cfp.devoxx.fr/2017/speaker/josh_long"&gt;epic Devoxx France&lt;/a&gt; event where I&amp;rsquo;ll be speaking with &lt;a href="http://twitter.com/mraible"&gt;my buddy Matt Raible&lt;/a&gt;) and Stuttgart, Germany, where I&amp;rsquo;ll be speaking at conferences and to customers! If you&amp;rsquo;re around, don&amp;rsquo;t hesitate to say &lt;a href="http://twitter.com/starbuxman"&gt;&amp;ldquo;hi&amp;rdquo;!&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;the new release of Spring Tool Suite is jam-packed with new features supporting &lt;a href="https://spring.io/blog/2017/04/03/spring-tool-suite-3-8-4-released"&gt;Spring Boot and Cloud Foundry&lt;/a&gt;. &lt;a href="http://docs.spring.io/sts/nan/v384/NewAndNoteworthy.html"&gt;Check the New and Noteworthy&lt;/a&gt; and get it while it&amp;rsquo;s hot! (I&amp;rsquo;ve just gotten a new laptop, so I&amp;rsquo;m doing that right now, too!)&lt;/li&gt;
   &lt;li&gt;last week in the latest installment of &lt;em&gt;Spring Tips&lt;/em&gt; I looked at some the various &lt;a href="https://spring.io/blog/2017/03/29/spring-tips-the-spring-framework-utils-classes"&gt;utility classes in the Spring Framework&lt;/a&gt;&lt;/li&gt;
@@ -114,7 +214,8 @@
 &lt;p&gt;5:05PM - 5:45PM - Meeting Room 9C&lt;br/&gt;Branding is the most cringeworthy term you want to know about - Neha Batra&lt;br/&gt;&lt;a href="https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/57034"&gt;https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/57034&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Keynotes and Sessions - Thursday May 11&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;11:50AM - 12:30PM Scaling massive, real-time data pipelines with Go - Jean de Klerk&lt;br/&gt;Meeting Room 9 A/B&lt;br/&gt;&lt;a href="https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/56357"&gt;https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/56357&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;5:05PM - 5:45PM - Meeting Room 12&lt;br/&gt;There is only Zuul: Configuring and customizing the Zuul API gateway - Spencer Gibb&lt;br/&gt;&lt;a href="https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/57109"&gt;https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/57109&lt;/a&gt;&lt;/p&gt;</content>
+&lt;p&gt;5:05PM - 5:45PM - Meeting Room 12&lt;br/&gt;There is only Zuul: Configuring and customizing the Zuul API gateway - Spencer Gibb&lt;br/&gt;&lt;a href="https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/57109"&gt;https://conferences.oreilly.com/oscon/oscon-tx/public/schedule/detail/57109&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://hackernoon.com/oscon-has-a-big-deal-for-independent-consultants-and-freelancers-8a362856f62e"&gt;Update: a 50% discount for independent consultants and freelancers from the organizers!&lt;/a&gt; &lt;/p&gt;</content>
   </entry>
   <entry>
     <title>Spring Tool Suite 3.8.4 released</title>
@@ -776,63 +877,5 @@ public static class {
     <content type="html">&lt;p&gt;Speaker: &lt;a href="https://www.twitter.com/starbuxman"&gt;Josh Long&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Hi Spring fans! in this installment, we&amp;rsquo;ll look at the reactive &lt;code&gt;WebClient&lt;/code&gt; and &lt;code&gt;WebTestClient&lt;/code&gt; in Spring Web Flux, the reactive web stack in Spring framework 5, due this summer.&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/leZdgr-O4LE" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content>
-  </entry>
-  <entry>
-    <title>Webinar: Strategic (Domain Driven) Design with Spring Boot</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/03/14/webinar-strategic-domain-driven-design-with-spring-boot" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2017-03-14:2869</id>
-    <updated>2017-03-14T10:56:00Z</updated>
-    <content type="html">&lt;p&gt;Speaker: Michael Plöd, InnoQ&lt;/p&gt;
-&lt;p&gt;This talk will focus on one of the most precious parts of Domain Driven Design, the concept of Strategic Design, as well as Bounded Context, the Context Map and the patterns that are being documented in the Context Map.&lt;/p&gt;
-&lt;p&gt;An explanation of these principles as well as practical usage scenarios such as migrating a monolithic landscape to microservices is planned for discussion. And, using a hands-on approach, we will demonstrate the concepts surrounding Strategic Design with an application landscape of various Spring Boot Applications&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.brighttalk.com/webcast/14893/250055"&gt;Register now!&lt;/a&gt;&lt;br/&gt;North America&lt;br/&gt;Wednesday, March 29&lt;br/&gt;10:00am PST / 1:00pm EST&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - March 14th, 2017</title>
-    <link rel="alternate" href="https://spring.io/blog/2017/03/14/this-week-in-spring-march-14th-2017" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2017-03-14:2868</id>
-    <updated>2017-03-14T03:52:00Z</updated>
-    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in Chicago on business and preparing for next week, where &lt;a href="http://devoxx.us/"&gt;I&amp;rsquo;ll be at the first Devoxx US event, ever!&lt;/a&gt;. I hope to see you there!&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;last week, I continued the &lt;em&gt;Spring Tips&lt;/em&gt; series with a look at how to &lt;a href="https://spring.io/blog/2017/03/08/spring-tips-server-sent-events-sse"&gt;implement server-sent events using &lt;em&gt;classic&lt;/em&gt; Spring MVC and Spring WebFlux in Spring Framework 5&lt;/a&gt;, due this summer&lt;/li&gt;
-  &lt;li&gt;Last week, Pivotal and Google announced &lt;a href="https://content.pivotal.io/announcements/meet-kubo-bosh-powered-web-scale-release-engineering-for-kubernetes"&gt;Kubo&lt;/a&gt;, the ability to &lt;a href="http://www.infoworld.com/article/3179753/cloud-computing/pivotal-google-team-up-for-kubernetes-cloud-management.html"&gt;run and manage Kubernetes, on top of BOSH, alongside Cloud Foundry.&lt;/a&gt; This means that it&amp;rsquo;s now possible to get support for both Pivotal Cloud Foundry and Kubernetes deployments, supporting cloud native applications and low-level container orchestration equally.&lt;/li&gt;
-  &lt;li&gt;Spring I/O Platform lead Andy Wilkinson announced &lt;a href="https://spring.io/blog/2017/03/07/spring-io-platform-brussels-sr1"&gt;Spring I/O Platform Brussels SR1&lt;/a&gt; and &lt;a href="https://spring.io/blog/2017/03/07/spring-io-platform-athens-sr4"&gt;Spring I/O Platform Athens sr4&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Disid has just announced an &lt;a href="https://spring.io/blog/2017/03/07/spring-roo-2-0-rc1-released"&gt;Spring Roo 2.0.RC1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring I/O Platform lead Andy Wilkinson just announced an updated revision &lt;a href="https://spring.io/blog/2017/03/09/dependency-management-plugin-1-0-1-release"&gt;of the dependency management plugin Platform&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Integration ninja Artem Bilan just announced an &lt;a href="https://spring.io/blog/2017/03/09/spring-integration-extension-for-aws-1-1-0-m1-available"&gt;updated revision of the Spring Integration extension for AWS&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Cloud ninja &lt;a href="https://spring.io/blog/2017/03/10/spring-cloud-camden-sr6-is-available"&gt;Ryan Baxter just announced Spring Cloud Camden SR6&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Don&amp;rsquo;t miss Michael Plod on Wednesday March 29th at 10:00am PT, he&amp;rsquo;s going to talk about &lt;a href="https://spring.io/blog/2017/03/14/webinar-strategic-domain-driven-design-with-spring-boot"&gt;Strategic (Domain Driven) Design with Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Greg Turnquist has announced that all the &lt;a href="https://twitter.com/gregturn/status/841378891545628675"&gt;Spring guides are now updated to reflect usage with IntelliJ IDEA&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;the Spring Security team is cooking up some amazing stuff for OAuth. Check out the &lt;a href="https://github.com/jgrandja/oauth2-samples"&gt;&lt;em&gt;super preliminary&lt;/em&gt;, not-final-at-all look at what&amp;rsquo;s coming&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;MuleSoft and Pivotal partner to &lt;a href="https://blogs.mulesoft.com/biz/news/mulesoft-pivotal-announce-solution-to-build-application-networks-on-pivotal-cloud-foundry/"&gt;support application networks between Pivotal Cloud Foundry and MuleSoft AnyPoint&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;The Baeldung blog has &lt;a href="http://www.baeldung.com/spring-ldap"&gt;a nice look at Spring LDAP&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="http://bosh.io/"&gt;BOSH&lt;/a&gt;, for those that don&amp;rsquo;t know, is an open source tool for release engineering, deployment, lifecycle management, and monitoring of distributed systems. It was developed by the Cloud Foundry team (many of whom were former Googlers) to support deploying Cloud Foundry itself. It&amp;rsquo;s the package manager for &lt;em&gt;services&lt;/em&gt;, not servers. It can be used to recreate entire distributed systems from the operating system up, with immutable infrastructure (as opposed to converged infrastructure options like Puppet or Chef). If you&amp;rsquo;re managing a large distributed system, you &lt;em&gt;need&lt;/em&gt; something like this beneath your system. You can also deploy arbitrary other packages, &lt;a href="http://engineering.pivotal.io/post/jmeter-bosh-release/"&gt;like Apache JMeter in distributed mode&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Also announced last week, Google&amp;rsquo;s CRE support and reliability engineers and Pivotal have &lt;a href="https://www.forbes.com/sites/alexkonrad/2017/03/08/google-cloud-brings-reliability-engineers-to-customers/#5c2aa1c05ab0"&gt;tag-teamed to support and certify Pivotal Cloud Foundry running on Google Cloud&lt;/a&gt;. To appreciate why this is so important, it means that &lt;a href="http://fortune.com/2017/03/07/pivotal-cloud-foundry-growth/"&gt;Pivotal Cloud Foundry&lt;/a&gt; - which is becoming &lt;a href="http://fortune.com/2017/03/07/pivotal-cloud-foundry-growth/"&gt;more and more white-hot&lt;/a&gt; by the day - now bakes in Google&amp;rsquo;s best practices for &lt;em&gt;site reliability engineering&lt;/em&gt;, &lt;a href="https://medium.com/@jerub/tenets-of-sre-8af6238ae8a8#.ixagtgbqa"&gt;as described here&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Michael Gruczel put together a nice look at building &lt;a href="https://jaxenter.de/spring-boot-tutorial-54020"&gt;REST APIs with Spring Boot in this German language post&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I liked Stefan Pröll&amp;rsquo;s &lt;a href="https://blog.stefanproell.at/2017/03/10/hibernate-search-and-spring-boot/"&gt;posts&lt;/a&gt; introducing &lt;a href="https://blog.stefanproell.at/2017/03/12/using-hibernate-search-with-spring-boot/"&gt;using Hibernate Search and Spring Boot together&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Not particularly related to Pivotal, I enjoyed this post from Eric Brewer - father of the CAP theorem - &lt;a href="https://cloudplatform.googleblog.com/2017/02/inside-Cloud-Spanner-and-the-CAP-Theorem.html"&gt;framing how CAP applies to Google&amp;rsquo;s Spanner database&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I really enjoyed &lt;a href="https://jaxenter.com/technology-trends-2017-top-frameworks-131993.html"&gt;this JAX survey report detailing the frameworks in which people have the most interest&lt;/a&gt;. Spring MVC and Spring Boot take the top spots in their respective categories. Thanks so much, Java community!&lt;/li&gt;
-  &lt;li&gt;Check out this talk introducing Apache Geode &lt;a href="https://dzone.com/articles/spring-data-and-in-memory-data-management-in-action"&gt;by Spring Data for Apache Geode contributors John Blum and Luke Shannon&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Couchbase developer advocate Laurent Doguin put together a &lt;a href="https://blog.couchbase.com/testing-spring-data-couchbase-applications-with-testcontainers/"&gt;nice look at testing Spring Data Couchbase applications with Test Containers and Spring&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This Russian language &lt;a href="https://alexkosarev.name/2017/02/09/spring-data-jpa-magic-methods/"&gt;post by Alexander Kosarev nicely introduces Spring Data repository method tricks&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I liked Oracle senior application engineer Orlando L. Otero&amp;rsquo;s post &lt;a href="http://tech.asimio.net/2017/03/06/Multi-version-Service-Discovery-using-Spring-Cloud-Netflix-Eureka-and-Ribbon.html#running-the-demo-service-2"&gt;on multi-version service discovery using Spring Cloud&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;this was a &lt;em&gt;very&lt;/em&gt; short-n-sweet look &lt;a href="https://www.youtube.com/watch?v=nWR26lEHyCg"&gt;at Spring Boot&amp;rsquo;s DevTools and live-reload support&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Kevin Hooke put together a nice look at &lt;a href="https://dzone.com/articles/building-a-spring-boot-restcontroller-to-search-re"&gt;using Spring Data Redis to build a search endpoint over REST&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;John Thompson put together a nice look &lt;a href="https://dzone.com/articles/configuring-spring-boot-for-microsoft-sql-server"&gt;at using Spring Boot with Microsoft SQL Server&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Oliver Antoine put together a nice &lt;a href="https://www.arexo.be/blog/writing-integration-tests-spring-boot-cassandra-2-minutes/"&gt;look at integration testing Spring Data Cassandra applications&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Check out the slides and &lt;a href="https://github.com/nfrankel/spring-boot-starter-xstream"&gt;code&lt;/a&gt; to our friend Nicolas Frankel&amp;rsquo;s talk, &lt;a href="https://www.slideshare.net/nfrankel/jdays-spring-boot-under-the-hood"&gt;Spring Boot Under the Hoode&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;this Tech Primer video on using &lt;a href="https://www.youtube.com/watch?v=bYiNlCaaRiI"&gt;Spring Data ElasticSearch seemed interesting&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Iam Djalas looks at how to &lt;a href="https://www.youtube.com/watch?v=ZA9WpK-lxXM"&gt;configure Spring Boot to talk to different databases using profiles&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Auth0 has a nice post &lt;a href="https://auth0.com/blog/securing-spring-boot-with-jwts/"&gt;on configuring Spring Boot to work with a third-party JWT implementation&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;to our friends at &lt;a href="https://stormpath.com/blog/stormpaths-new-path"&gt;Stormpath, congratulations on joining forces with Okta!&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
   </entry>
 </feed>

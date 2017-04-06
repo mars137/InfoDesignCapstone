@@ -2710,3 +2710,19 @@
 2017-04-05 22:44:48,696 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 106 resources
 2017-04-05 22:44:48,754 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-04-05 22:44:48,754 [Worker-113] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory I:\MIS-Course\semester 4\Design\ProjectCode\InfoDesignCapstone\WorkTask\src\test\resources
+2017-04-05 23:19:02,309 [Worker-4] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:demo:0.0.1-SNAPSHOT @ I:\MIS-Course\semester 4\Design\ProjectCode\InfoDesignCapstone\WorkTask\pom.xml.
+2017-04-05 23:19:04,550 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-05 23:19:04,556 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-05 23:19:04,576 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 106 resources
+2017-04-05 23:19:04,945 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-05 23:19:04,945 [Worker-4] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory I:\MIS-Course\semester 4\Design\ProjectCode\InfoDesignCapstone\WorkTask\src\test\resources
+2017-04-05 23:23:04,826 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-05 23:23:04,829 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-04-05 23:23:04,830 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-05 23:23:04,836 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-05 23:23:04,836 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory I:\MIS-Course\semester 4\Design\ProjectCode\InfoDesignCapstone\WorkTask\src\test\resources
+2017-04-05 23:23:20,571 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-05 23:23:20,572 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2017-04-05 23:23:20,573 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-04-05 23:23:20,577 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-04-05 23:23:20,578 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory I:\MIS-Course\semester 4\Design\ProjectCode\InfoDesignCapstone\WorkTask\src\test\resources
