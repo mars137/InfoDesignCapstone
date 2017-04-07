@@ -5,7 +5,7 @@ app.controller('RegistrationCtrl',function($scope,$http,$location,$rootScope ){
     	
     	 dataObj=JSON.stringify(customer);
 
-   		var res = $http.post('http://localhost:8080/RegisterUser', dataObj);
+   		var res = $http.post('http://35.161.33.203:8080/RegisterUser', dataObj);
    		res.success(function(data, status, headers, config) {
    			$scope.message = data;
    			
@@ -35,7 +35,7 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
     	
     	 dataObj=JSON.stringify(customer);
 
-   		var res = $http.post('http://localhost:8080/LoginUser', dataObj);
+   		var res = $http.post('http://35.161.33.203:8080/LoginUser', dataObj);
    		res.success(function(data, status, headers, config) {
    		
    			if(data > 0){
