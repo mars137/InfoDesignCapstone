@@ -1,7 +1,7 @@
 
 
 
-app.controller('TabController', ['$scope','$rootScope',function($scope,$rootScope){
+/*app.controller('TabController', ['$scope','$rootScope',function($scope,$rootScope){
 	$rootScope.portfolio=true;
 	$rootScope.about=true;
 	$rootScope.contact=true;
@@ -344,116 +344,9 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 
 
 
-app.controller('showChart', function ($scope,$rootScope) {
 
 
-
-$scope.demo=true;
-
- $scope.myDate = new Date();
-
-  $scope.minDate = new Date(
-      $scope.myDate.getFullYear(),
-      $scope.myDate.getMonth() - 2,
-      $scope.myDate.getDate());
-
-  $scope.maxDate = new Date(
-      $scope.myDate.getFullYear(),
-      $scope.myDate.getMonth() + 2,
-      $scope.myDate.getDate());
-
-   $scope.retriveReport = function () {
-        alert("aa");
-$scope.demo=false;
-    }; 
-
-
-
-
-
-
-             $scope.selectedValue = "Please click on any column above.";
-      $scope.events = {
-        dataplotclick: function(ev, props) {
-          $scope.$apply(function() {
-            //create a table if possible to show all data for that person
-            $scope.colorValue = "background-color:" + props.categoryLabel + ";";
-            $scope.selectedValue = "You clicked on " + props.categoryLabel + "  column!";
-
-                
-
-          
-
-
-
-          });
-        }
-      };
-      $scope.dataSource = {
-        "chart": {
-          "caption": "Missed Work",
-          "captionFontSize": "30",
-          "captionPadding": "25",
-          "baseFontSize": "16",
-          "canvasBorderAlpha": "0",
-          "showPlotBorder": "0",
-          "placevaluesInside": "1",
-          "valueFontColor": "#ffffff",
-          "captionFontBold": "0",
-          "bgColor": "#ffffff",
-          "divLineAlpha": "50",
-          "plotSpacePercent": "10",
-          "bgAlpha": "95",
-          "canvasBgAlpha": "0",
-          "outCnvBaseFontColor": "#FFFFFF",
-          "showValues": "0",
-          "baseFont": "Open Sans",
-          "paletteColors": "#ffffff, #ffffff, #ffffff, #FFD700, #FF1493",
-          "theme": "zune",
-          
-          // tool-tip customization
-          "toolTipBorderColor": "#FFFFFF",
-          "toolTipBorderThickness": "1",
-          "toolTipBorderRadius": "2",
-          "toolTipBgColor": "#000000",
-          "toolTipBgAlpha": "70",
-          "toolTipPadding": "12",
-          "toolTipSepChar": " - ",
-          // axis customization
-          "xAxisNameFontSize": "18",
-          "yAxisNameFontSize": "18",
-          "xAxisNamePadding": "10",
-          "yAxisNamePadding": "10",
-          "xAxisName": "Name",
-          "yAxisName": "No of times missed",
-          "xAxisNameFontBold": "0",
-          "yAxisNameFontBold": "0",
-          "showXAxisLine": "1",
-          "xAxisLineColor": "#999999",
-        },
-        "data": [{
-          "label": "Varun",
-          "value": "1"
-        }, {
-          "label": "Nitin",
-          "value": "2"
-        }, {
-          "label": "Shauktik",
-          "value": "0"
-        }, {
-          "label": "Bindra",
-          "value": "2"
-        }, {
-          "label": "Manish",
-          "value": "4"
-        }]
-      };
-    });
-
-
-
-
-
+*/
 
 app.controller('TabController', ['$scope','$rootScope',function($scope,$rootScope){
 	$rootScope.portfolio=true;
