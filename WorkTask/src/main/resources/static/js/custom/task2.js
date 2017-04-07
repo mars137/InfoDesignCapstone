@@ -495,7 +495,12 @@ var doo = new Date(user.due_date);
  $http.post('http://localhost:8080/editstatus/', p)
             .success(function (data, status, headers, config) {
              //  $scope.succcessMessage = data;
-                  alert( "success message: " + JSON.stringify({data: data}));
+            	  swal({
+              		  title: "Sweet! Task Completed",
+              		  //text: "Here's a custom image.",
+              		  imageUrl: "images/task/thumbs-up.jpg"
+              		});
+                  //alert( "success message: " + JSON.stringify({data: data}));
             })
             .error(function (data, status, header, config) {
                 $scope.ResponseDetails = "Data: " + data +
@@ -690,7 +695,7 @@ var dataObj = [{
 		var res = $http.post('http://localhost:8080/insert', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
-alert(data);
+			swal(data);
 $scope.personalDetail1 = angular.copy($scope.initial);
 		});
 		res.error(function(data, status, headers, config) {
