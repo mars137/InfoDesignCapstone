@@ -32,6 +32,7 @@
                <img alt="minon-img" class="img img-responsive pull-right"
                   src="images/login/minion_top.png"
                   style="margin-bottom: 0px; width: 25%">
+                  <span class="bubble"></span>
             </div>
          </div>
          <div class="tab" ng-controller="TabController as tabs">
@@ -46,6 +47,7 @@
                   <a href ng-click="tabs.setTab(4)">Report Card</a>
                </li>
             </ul>
+            
             <div ng-show="tabs.isSet(2)" ng-controller="retriveCtrl"
                ng-init="refreshData()">
                <div class="row">
@@ -61,7 +63,7 @@
                                  <md-datepicker style="color:#1275BC" ng-model="myDate2" md-placeholder="END DATE"></md-datepicker>
                               </div>
                               <div flex-gt-xs="">
-                                 <input button class="btn btn-success" ng-click="retriveTask()"
+                                 <input button class="btn btn-success pad-top-mob" ng-click="retriveTask()"
                                     type="submit"></input>
                               </div>
                            </div>
@@ -75,7 +77,7 @@
                      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6" title="'Work'">{{user.taskName}}</div>
                      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"
                         title="'Due Date'">{{user.due_date}}</div>
-                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin-top:15px" title="'Status'">
+                     <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" title="'Status'">
                         <select ng-model="user.status"
                            ng-options="item for item in names.values"
                            ng-change="updatetask(user)" class="button-update" ng-disabled="!check(user.due_date)">
