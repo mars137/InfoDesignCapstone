@@ -24,13 +24,24 @@ public class UpdateStatusDAO {
 	JdbcTemplate template; 
 	 Calendar calendar = Calendar.getInstance();
 	    java.sql.Date ourJavaDateObject = new java.sql.Date(calendar.getTime().getTime());
-	public List<UpdateStatus> getStatus(int id)
+	@SuppressWarnings("deprecation")
+	public List<UpdateStatus> getStatus(int id,Date start,Date end)
 	{
-		
-		
-		String sql = "select a.task_name,b.due_date,b.login_id,b.status  from task_status b ,task_master a where b.login_id=? and b.task_id=a.task_id and b.due_date <=?";
-		
-		return template.query(sql, new Object[]{id,ourJavaDateObject}, new RowMapper<UpdateStatus>(){
+		String sql="";
+		if(start.toString().equals("1968-12-01")&& end.toString().equals("1968-12-01")){
+			//start=ourJavaDateObject;
+			end=ourJavaDateObject;
+		}
+		/*if(start==null && end==null){
+		 sql = "select a.task_name,b.due_date,b.login_id,b.status  from task_status b ,task_master a where b.login_id=? and b.task_id=a.task_id and b.due_date <=?";
+		}
+		else*/
+		{
+			// sql = "select a.task_name,b.due_date,b.login_id,b.status  from task_status b ,task_master a where b.login_id=? and b.task_id=a.task_id  and b.due_date >= '"+start+"'and b.due_date <='"+end+"'";
+			 sql = "select a.task_name,b.due_date,b.login_id,b.status  from task_status b ,task_master a where b.login_id=? and b.task_id=a.task_id  and b.due_date >= ?and b.due_date <=?";
+
+		}
+		return template.query(sql, new Object[]{id,start,end}, new RowMapper<UpdateStatus>(){
 			@Override
 			
 			public UpdateStatus mapRow(ResultSet rs, int rownumber) throws SQLException

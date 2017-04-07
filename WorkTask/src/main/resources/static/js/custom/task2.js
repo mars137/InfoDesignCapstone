@@ -399,7 +399,8 @@ $scope.names= {
     "values": ["Complete","Incomplete"] 
   };
   
-
+var startDate="";
+var endDate="";
 
 
 $scope.check=function(user)
@@ -423,9 +424,9 @@ $scope.check=function(user)
   var parameters = {
 		  
 		 // id:1
-               id: Val
-              //  startDate=,
-               // endDate=
+               id: Val,
+              startDate:"1968-12-01",
+                endDate:"1968-12-01"
             };
   var config = {
                 params: parameters
@@ -449,8 +450,45 @@ $scope.check=function(user)
 
 $scope.retriveTask=function(){
 
-var date1 = $scope.myDate1;
-var date2=$scope.myDate2;
+/*var date1 = $scope.myDate1;
+var date2=$scope.myDate2;*/
+
+console.log(date1);
+
+var day = $scope.myDate1.getDate();
+var monthIndex = $scope.myDate1.getMonth();
+var year = $scope.myDate1.getFullYear();
+
+var day1 = $scope.myDate2.getDate();
+var monthIndex1 = $scope.myDate2.getMonth();
+var year1 = $scope.myDate2.getFullYear();
+
+var  date1= year + '-' + (monthIndex + 1) + '-' + day;
+
+var  date2= year1 + '-' + (monthIndex1 + 1) + '-' + day1;
+
+Val=  $rootScope.uid;
+var parameters = {
+		  
+		
+             id: Val,
+             startDate:date1,
+              endDate:date2
+          };
+var config = {
+              params: parameters
+          };
+ $http.get('http://localhost:8080/editemp/', config)
+          .success(function (data, status, headers, config) {
+              $scope.Details = data;
+          })
+          .error(function (data, status, header, config) {
+              $scope.ResponseDetails = "Data: " + data +
+                  "<hr />status: " + status +
+                  "<hr />headers: " + header +
+                  "<hr />config: " + config;
+          });
+
 
 
 };
@@ -587,16 +625,7 @@ $scope.counter = 0;
 		'startdate':'',
      'enddate':'',
 		 'frequency':'',
-		  /*'users':[{
-"id": 1,
-"name": "Varun",
-}, {
-"id": 3,
-"name": "Vat",
-}, {
-"id": 5,
-"name": "Vasu"
-}],*/
+		  
 
 		 'users':$scope.user,
 		 

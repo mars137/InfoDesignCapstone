@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import java.sql.Date;
 import java.util.Collections;
 import java.util.List;
 
@@ -36,12 +37,15 @@ public class RestServiceController {
 	
 	
 	@RequestMapping(value="/editemp" ,method=RequestMethod.GET)  
-	public List<UpdateStatus> get(@RequestParam(value="id") int id)
+	public List<UpdateStatus> get(@RequestParam(value="endDate") Date end
+			,@RequestParam(value="id") int id,@RequestParam(value="startDate") Date start )
 	{
-		List<UpdateStatus> up = dao.getStatus(id);
+		List<UpdateStatus> up = dao.getStatus(id,start,end);
 		
 		return up;
 	}
+	
+	
 	
 	
 	@RequestMapping(value="/getNames" ,method=RequestMethod.GET)  
