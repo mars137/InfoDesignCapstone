@@ -5,4 +5,5 @@
 <fullyQualifiedTypeName name="com.example.Dao.LoginDao"/>
 <fullyQualifiedTypeName name="java.sql.Types"/>
 <fullyQualifiedTypeName name="com.example.Dao.AddStatusDao"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
 </qualifiedTypeNameHistroy>

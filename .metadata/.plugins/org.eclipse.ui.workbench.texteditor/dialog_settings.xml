@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="35.161.33.203" key="selection"/>
+		<item value=" var  end= day1 + &apos;/&apos; + (monthIndex1 + 1) + &apos;/&apos; + year1;" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="localhost"/>
-			<item value="check"/>
-			<item value="Val"/>
-			<item value="alert"/>
-			<item value="ng-cookies"/>
-			<item value="route"/>
-			<item value="ng-route"/>
-			<item value="ng-table"/>
+			<item value=" var  end= day1 + &apos;/&apos; + (monthIndex1 + 1) + &apos;/&apos; + year1;"/>
+			<item value="$scope.retriveTask"/>
+			<item value="$scope.check"/>
+			<item value="retriveCtrl"/>
+			<item value="incomplete"/>
+			<item value="35.161.33.203"/>
+			<item value=" 35.161.33.203"/>
+			<item value=" &lt;addResources&gt;true&lt;/addResources&gt;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="localhost"/>
 			<item value="35.161.33.203"/>
 			<item value=""/>
 		</list>

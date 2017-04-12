@@ -1,0 +1,16 @@
+package com.example.bean;
+
+import java.sql.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class Report {
+
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="CST")
+	private Date due_date;
+	
+	private String task_Name;
+	private String status;
+	private String name;
+	
+}

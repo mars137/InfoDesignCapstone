@@ -1,4 +1,4 @@
-var app = angular.module('errandify', ['ngMaterial','ngRoute','ngCookies']);
+var app = angular.module('errandify', ['ngMaterial','ngRoute','ngCookies','ng-fusioncharts']);
 
 app.config(['$routeProvider',
 	  function ($routeProvider) {

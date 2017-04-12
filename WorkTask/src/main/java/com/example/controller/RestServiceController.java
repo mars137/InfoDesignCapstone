@@ -20,6 +20,7 @@ import org.springframework.http.MediaType;
 import com.example.Dao.AddStatusDao;
 import com.example.Dao.UpdateStatusDAO;
 import com.example.bean.AddStatus;
+import com.example.bean.Report;
 import com.example.bean.UpdateStatus;
 import com.example.business.AddTask;
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -33,6 +34,17 @@ public class RestServiceController {
 	@Autowired
 	AddStatusDao addTask;
 	
+	
+	
+
+	@RequestMapping(value="/Report" ,method=RequestMethod.GET)  
+	public List<Report> getReport(@RequestParam(value="endDate") Date end1
+			,@RequestParam(value="id") int id,@RequestParam(value="startDate") Date start1 )
+	{
+		List<Report> up = dao.getReportStatus(id,start1,end1);
+		
+		return up;
+	}
 	
 	
 	

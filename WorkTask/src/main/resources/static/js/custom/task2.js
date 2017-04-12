@@ -526,7 +526,7 @@ app.config(function ($httpProvider) {
   $httpProvider.defaults.headers.put = {};
   $httpProvider.defaults.headers.patch = {};
 });
-alert(user.status);
+//alert(user.status);
 var doo = new Date(user.due_date);
 //user.due_date=new Date(doo.getTime()+doo.getTimezoneOffset()*60000);
 
@@ -724,11 +724,11 @@ var dataObj = [{
 		var res = $http.post('http://localhost:8080/insert', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
-			swal(data);
+			swal("You have added the task");
 $scope.personalDetail1 = angular.copy($scope.initial);
 		});
 		res.error(function(data, status, headers, config) {
-			alert( "failure message: " + JSON.stringify({data: data}));
+			swal( "Error in adding your task");
 		});		
 		// Making the fields empty
 		//
@@ -750,111 +750,222 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 
 
 
-app.controller('showChart', function ($scope,$rootScope) {
+  app.controller('showChart', function ($scope,$rootScope,$http) {
+
+	
+	  $scope.demo=true;
+
+	  $scope.dataSource ={};
+
+	     $scope.retriveReport = function () {
+	        
+	    	 
+	    	 var day = $scope.ReportDate1.getDate();
+	 	    var monthIndex = $scope.ReportDate1.getMonth();
+	 	    var year = $scope.ReportDate1.getFullYear();
+
+	 	    var day1 = $scope.ReportDate2.getDate();
+	 	    var monthIndex1 = $scope.ReportDate2.getMonth();
+	 	    var year1 = $scope.ReportDate2.getFullYear();
+	 	    
+	 	  
+	 	 var  start= year + '-' + (monthIndex + 1) + '-' + day;
+
+	 	var  end= year1 + '-' + (monthIndex1 + 1) + '-' + day1;
+
+	 	Val=  $rootScope.uid;
+	 	
+	 	 $scope.reportDetails=[{}];
+
+	    	 if(end>=start)
+	    	 { 
+	    		 var parameters = {
+	   	 			  
+	    		 			
+		 	             id: Val,
+		 	             startDate:start,
+		 	              endDate:end
+		 	          };
+		 	var config = {
+		 	              params: parameters
+		 	          };
+	    		 $http.get('http://localhost:8080/Report/', config)
+	 	          .success(function (data, status, headers, config) {
+	 	              $scope.reportDetails = data;
+	 	             $scope.temp=JSON.stringify($scope.reportDetails);
+	 	            $scope.temp=JSON.parse($scope.temp);
+	 	             $scope.demo=false;
+	 	             
+	 	            $scope.dataSource = {
+	 		                "chart": {
+	 		                  "caption": "Missed Work",
+	 		                  "captionFontSize": "30",
+	 		                  "captionPadding": "25",
+	 		                  "baseFontSize": "16",
+	 		                  "canvasBorderAlpha": "0",
+	 		                  "showPlotBorder": "0",
+	 		                  "placevaluesInside": "1",
+	 		                  "valueFontColor": "#ffffff",
+	 		                  "captionFontBold": "0",
+	 		                  "bgColor": "#2C3E50",
+	 		                  "divLineAlpha": "50",
+	 		                  "plotSpacePercent": "10",
+	 		                  "bgAlpha": "95",
+	 		                  "canvasBgAlpha": "0",
+	 		                  "outCnvBaseFontColor": "#FFFFFF",
+	 		                  "showValues": "0",
+	 		                  "baseFont": "Open Sans",
+	 		                  "paletteColors": "#6495ED, #FF6347, #90EE90, #FFD700, #FF1493",
+	 		                  "theme": "zune",
+	 		                  
+	 		                  // tool-tip customization
+	 		                  "toolTipBorderColor": "#FFFFFF",
+	 		                  "toolTipBorderThickness": "1",
+	 		                  "toolTipBorderRadius": "2",
+	 		                  "toolTipBgColor": "white",
+	 		                  "toolTipBgAlpha": "70",
+	 		                  "toolTipPadding": "12",
+	 		                  "toolTipSepChar": " - ",
+	 		                  // axis customization
+	 		                  "xAxisNameFontSize": "18",
+	 		                  "yAxisNameFontSize": "18",
+	 		                  "xAxisNamePadding": "10",
+	 		                  "yAxisNamePadding": "10",
+	 		                  "xAxisName": "Names",
+	 		                  "yAxisName": "Incomplete Work",
+	 		                  "xAxisNameFontBold": "0",
+	 		                  "yAxisNameFontBold": "0",
+	 		                  "showXAxisLine": "1",
+	 		                  "xAxisLineColor": "#999999",
+	 		                },
+	 		          /*     "data": [{
+	 		                  "name": "Varun",
+	 		                  "value": "1"
+	 		                }, {
+	 		                  "name": "Nitin",
+	 		                  "value": "2"
+	 		                }, {
+	 		                  "name": "Shauktik",
+	 		                  "value": "0"
+	 		                }, {
+	 		                  "name": "Bindra",
+	 		                  "value": "2"
+	 		                }, {
+	 		                  "name": "Manish",
+	 		                  "value": "4"
+	 		                }]*/
+	 		                
+	 		                
+	 		               "data":  $scope.temp
+	 		                
+	 		              };
+	 	             
+	 	             
+	 	             
+	 	             
+	 	          })
+	 	          .error(function (data, status, header, config) {
+	 	              $scope.ResponseDetails = "Data: " + data +
+	 	                  "<hr />status: " + status +
+	 	                  "<hr />headers: " + header +
+	 	                  "<hr />config: " + config;
+	 	          });
+	    	       	 
+	    		
+	    		 
+	    	 }
+	    	 
+	    	 else
+	    		 {
+	    		 swal("Start Date cannot be greater than end date");
+	    		 }
+	      }; 
 
 
 
-$scope.demo=true;
+	    
 
- $scope.myDate = new Date();
 
-  $scope.minDate = new Date(
-      $scope.myDate.getFullYear(),
-      $scope.myDate.getMonth() - 2,
-      $scope.myDate.getDate());
+	               $scope.selectedValue = "Please click on any column above.";
+	        $scope.events = {
+	          dataplotclick: function(ev, props) {
+	            $scope.$apply(function() {
+	              //create a table if possible to show all data for that person
+	              $scope.colorValue = "background-color:" + props.categoryLabel + ";";
+	              $scope.selectedValue = "You clicked on " + props.categoryLabel + "  column!";
 
-  $scope.maxDate = new Date(
-      $scope.myDate.getFullYear(),
-      $scope.myDate.getMonth() + 2,
-      $scope.myDate.getDate());
+	                  
 
-   $scope.retriveReport = function () {
-        alert("aa");
-$scope.demo=false;
-    }; 
+	            
 
 
 
-
-
-
-             $scope.selectedValue = "Please click on any column above.";
-      $scope.events = {
-        dataplotclick: function(ev, props) {
-          $scope.$apply(function() {
-            //create a table if possible to show all data for that person
-            $scope.colorValue = "background-color:" + props.categoryLabel + ";";
-            $scope.selectedValue = "You clicked on " + props.categoryLabel + "  column!";
-
-                
-
-          
-
-
-
-          });
-        }
-      };
-      $scope.dataSource = {
-        "chart": {
-          "caption": "Missed Work",
-          "captionFontSize": "30",
-          "captionPadding": "25",
-          "baseFontSize": "16",
-          "canvasBorderAlpha": "0",
-          "showPlotBorder": "0",
-          "placevaluesInside": "1",
-          "valueFontColor": "#ffffff",
-          "captionFontBold": "0",
-          "bgColor": "#ffffff",
-          "divLineAlpha": "50",
-          "plotSpacePercent": "10",
-          "bgAlpha": "95",
-          "canvasBgAlpha": "0",
-          "outCnvBaseFontColor": "#FFFFFF",
-          "showValues": "0",
-          "baseFont": "Open Sans",
-          "paletteColors": "#ffffff, #ffffff, #ffffff, #FFD700, #FF1493",
-          "theme": "zune",
-          
-          // tool-tip customization
-          "toolTipBorderColor": "#FFFFFF",
-          "toolTipBorderThickness": "1",
-          "toolTipBorderRadius": "2",
-          "toolTipBgColor": "#000000",
-          "toolTipBgAlpha": "70",
-          "toolTipPadding": "12",
-          "toolTipSepChar": " - ",
-          // axis customization
-          "xAxisNameFontSize": "18",
-          "yAxisNameFontSize": "18",
-          "xAxisNamePadding": "10",
-          "yAxisNamePadding": "10",
-          "xAxisName": "Name",
-          "yAxisName": "No of times missed",
-          "xAxisNameFontBold": "0",
-          "yAxisNameFontBold": "0",
-          "showXAxisLine": "1",
-          "xAxisLineColor": "#999999",
-        },
-        "data": [{
-          "label": "Varun",
-          "value": "1"
-        }, {
-          "label": "Nitin",
-          "value": "2"
-        }, {
-          "label": "Shauktik",
-          "value": "0"
-        }, {
-          "label": "Bindra",
-          "value": "2"
-        }, {
-          "label": "Manish",
-          "value": "4"
-        }]
-      };
-    });
-
-
+	            });
+	          }
+	        };
+	        $scope.temp=JSON.stringify($scope.reportDetails);
+	        /*$scope.dataSource = {
+	                "chart": {
+	                  "caption": "Missed Work",
+	                  "captionFontSize": "30",
+	                  "captionPadding": "25",
+	                  "baseFontSize": "16",
+	                  "canvasBorderAlpha": "0",
+	                  "showPlotBorder": "0",
+	                  "placevaluesInside": "1",
+	                  "valueFontColor": "#ffffff",
+	                  "captionFontBold": "0",
+	                  "bgColor": "#2C3E50",
+	                  "divLineAlpha": "50",
+	                  "plotSpacePercent": "10",
+	                  "bgAlpha": "95",
+	                  "canvasBgAlpha": "0",
+	                  "outCnvBaseFontColor": "#FFFFFF",
+	                  "showValues": "0",
+	                  "baseFont": "Open Sans",
+	                  "paletteColors": "#6495ED, #FF6347, #90EE90, #FFD700, #FF1493",
+	                  "theme": "zune",
+	                  
+	                  // tool-tip customization
+	                  "toolTipBorderColor": "#FFFFFF",
+	                  "toolTipBorderThickness": "1",
+	                  "toolTipBorderRadius": "2",
+	                  "toolTipBgColor": "#000000",
+	                  "toolTipBgAlpha": "70",
+	                  "toolTipPadding": "12",
+	                  "toolTipSepChar": " - ",
+	                  // axis customization
+	                  "xAxisNameFontSize": "18",
+	                  "yAxisNameFontSize": "18",
+	                  "xAxisNamePadding": "10",
+	                  "yAxisNamePadding": "10",
+	                  "xAxisName": "Colors",
+	                  "yAxisName": "Column Size",
+	                  "xAxisNameFontBold": "0",
+	                  "yAxisNameFontBold": "0",
+	                  "showXAxisLine": "1",
+	                  "xAxisLineColor": "#999999",
+	                },
+	                "data": [{
+	                  "name": "Varun",
+	                  "value": "1"
+	                }, {
+	                  "name": "Nitin",
+	                  "value": "2"
+	                }, {
+	                  "name": "Shauktik",
+	                  "value": "0"
+	                }, {
+	                  "name": "Bindra",
+	                  "value": "2"
+	                }, {
+	                  "name": "Manish",
+	                  "value": "4"
+	                }]
+	                
+	                
+	                "data":  $scope.temp
+	                
+	              };*/
+	      });
 
