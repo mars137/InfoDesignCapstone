@@ -761,13 +761,26 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 	        
 	    	 
 	    	 var day = $scope.ReportDate1.getDate();
+	    	/* if(day<10)
+	    		 day="0"+day;*/
 	 	    var monthIndex = $scope.ReportDate1.getMonth();
+	 	  /* if(monthIndex<10)
+	 		  monthIndex="0"+monthIndex;*/
 	 	    var year = $scope.ReportDate1.getFullYear();
 
 	 	    var day1 = $scope.ReportDate2.getDate();
+	 /*	   if(day1<10)
+	    		 day1="0"+day1;*/
 	 	    var monthIndex1 = $scope.ReportDate2.getMonth();
+	 	   /*if(monthIndex1<10)
+	 		  monthIndex1="0"+monthIndex1;*/
 	 	    var year1 = $scope.ReportDate2.getFullYear();
 	 	    
+	 	  var start1=year + (monthIndex + 1)  + day;
+	 	  var end1=year1  + (monthIndex1 + 1)  + day1;
+	 	  
+	 	  
+	 	  
 	 	  
 	 	 var  start= year + '-' + (monthIndex + 1) + '-' + day;
 
@@ -777,7 +790,7 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 	 	
 	 	 $scope.reportDetails=[{}];
 
-	    	 if(end>=start)
+	    	 if(parseInt(end1)>=parseInt(start1))
 	    	 { 
 	    		 var parameters = {
 	   	 			  
@@ -903,69 +916,6 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 	            });
 	          }
 	        };
-	        $scope.temp=JSON.stringify($scope.reportDetails);
-	        /*$scope.dataSource = {
-	                "chart": {
-	                  "caption": "Missed Work",
-	                  "captionFontSize": "30",
-	                  "captionPadding": "25",
-	                  "baseFontSize": "16",
-	                  "canvasBorderAlpha": "0",
-	                  "showPlotBorder": "0",
-	                  "placevaluesInside": "1",
-	                  "valueFontColor": "#ffffff",
-	                  "captionFontBold": "0",
-	                  "bgColor": "#2C3E50",
-	                  "divLineAlpha": "50",
-	                  "plotSpacePercent": "10",
-	                  "bgAlpha": "95",
-	                  "canvasBgAlpha": "0",
-	                  "outCnvBaseFontColor": "#FFFFFF",
-	                  "showValues": "0",
-	                  "baseFont": "Open Sans",
-	                  "paletteColors": "#6495ED, #FF6347, #90EE90, #FFD700, #FF1493",
-	                  "theme": "zune",
-	                  
-	                  // tool-tip customization
-	                  "toolTipBorderColor": "#FFFFFF",
-	                  "toolTipBorderThickness": "1",
-	                  "toolTipBorderRadius": "2",
-	                  "toolTipBgColor": "#000000",
-	                  "toolTipBgAlpha": "70",
-	                  "toolTipPadding": "12",
-	                  "toolTipSepChar": " - ",
-	                  // axis customization
-	                  "xAxisNameFontSize": "18",
-	                  "yAxisNameFontSize": "18",
-	                  "xAxisNamePadding": "10",
-	                  "yAxisNamePadding": "10",
-	                  "xAxisName": "Colors",
-	                  "yAxisName": "Column Size",
-	                  "xAxisNameFontBold": "0",
-	                  "yAxisNameFontBold": "0",
-	                  "showXAxisLine": "1",
-	                  "xAxisLineColor": "#999999",
-	                },
-	                "data": [{
-	                  "name": "Varun",
-	                  "value": "1"
-	                }, {
-	                  "name": "Nitin",
-	                  "value": "2"
-	                }, {
-	                  "name": "Shauktik",
-	                  "value": "0"
-	                }, {
-	                  "name": "Bindra",
-	                  "value": "2"
-	                }, {
-	                  "name": "Manish",
-	                  "value": "4"
-	                }]
-	                
-	                
-	                "data":  $scope.temp
-	                
-	              };*/
+	    
 	      });
 
