@@ -761,30 +761,32 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 	        
 	    	 
 	    	 var day = $scope.ReportDate1.getDate();
-	    	/* if(day<10)
-	    		 day="0"+day;*/
+	    	if(day<10)
+	    		 day="0"+day;
 	 	    var monthIndex = $scope.ReportDate1.getMonth();
-	 	  /* if(monthIndex<10)
-	 		  monthIndex="0"+monthIndex;*/
+	 	    monthIndex=monthIndex+1;
+	 	   if(monthIndex<10)
+	 		  monthIndex="0"+monthIndex;
 	 	    var year = $scope.ReportDate1.getFullYear();
 
 	 	    var day1 = $scope.ReportDate2.getDate();
-	 /*	   if(day1<10)
-	    		 day1="0"+day1;*/
+	   if(day1<10)
+	    		 day1="0"+day1;
 	 	    var monthIndex1 = $scope.ReportDate2.getMonth();
-	 	   /*if(monthIndex1<10)
-	 		  monthIndex1="0"+monthIndex1;*/
+	 	   monthIndex1=monthIndex1+1;
+	 	   if(monthIndex1<10)
+	 		  monthIndex1="0"+monthIndex1;
 	 	    var year1 = $scope.ReportDate2.getFullYear();
 	 	    
-	 	  var start1=year + (monthIndex + 1)  + day;
-	 	  var end1=year1  + (monthIndex1 + 1)  + day1;
+	 	  var start1=year + ""+(monthIndex)+""  + day;
+	 	  var end1=year1  +""+ (monthIndex1)+""  + day1;
 	 	  
 	 	  
 	 	  
 	 	  
-	 	 var  start= year + '-' + (monthIndex + 1) + '-' + day;
+	 	 var  start= year + '-' + (monthIndex) + '-' + day;
 
-	 	var  end= year1 + '-' + (monthIndex1 + 1) + '-' + day1;
+	 	var  end= year1 + '-' + (monthIndex1) + '-' + day1;
 
 	 	Val=  $rootScope.uid;
 	 	
