@@ -812,7 +812,9 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 	 	             $scope.demo=false;
 	 	             
 	 	            $scope.dataSource = {
-	 		                "chart": {
+	 	            		"width": "100%",
+	 	                   "height": "100%",
+	 	            		"chart": {
 	 		                  "caption": "Missed Work",
 	 		                  "captionFontSize": "30",
 	 		                  "captionPadding": "25",

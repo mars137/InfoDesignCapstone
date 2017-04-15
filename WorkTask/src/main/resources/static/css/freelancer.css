@@ -536,15 +536,26 @@ width: 0;
 z-index: 0;
 }
 
+ #angularChart{
+ margin-top:10px;
+ 
+ }
+ 
+ .nav-pills li a{
+ background-color: #f3f3f3;
+ }
+
 @media (min-width: 320px) 
   and (max-width: 550px) {
 .bubble{
-	padding:2px;
+	padding:5px;
+	
 }
 .bubble:after 
 {
 	bottom: -14px;
 	left:53%;
+	
 }
 .bubble:before 
 {
@@ -559,6 +570,14 @@ z-index: 0;
 }
 }
 	
+@media (min-width: 767px) {
+ .nav>li>a {
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 115%;
+}
+ 
+}
 	
  
  
