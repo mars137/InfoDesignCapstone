@@ -861,8 +861,10 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 	 		                  "toolTipPadding": "12",
 	 		                  "toolTipSepChar": " - ",
 	 		                  // axis customization
-	 		                  "xAxisNameFontSize": "11",
-	 		                  "yAxisNameFontSize": "11",
+	 		                  "xAxisNameFontSize": "12",
+	 		                  "yAxisNameFontSize": "12",
+	 		                  "xAxisNameFontColor":"#337ab7",
+	 		                  "yAxisNameFontColor":"#337ab7",
 	 		                  "xAxisNamePadding": "10",
 	 		                  "yAxisNamePadding": "10",
 	 		                  "xAxisName": "Names",
