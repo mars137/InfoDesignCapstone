@@ -359,12 +359,29 @@ app.controller('TabController', ['$scope','$rootScope',function($scope,$rootScop
 console.log("inside functionlityu");
     this.setTab = function(newValue){
       this.tab = newValue;
+      tabArray1 = ["mmm... whom do you have in mind",
+    	   	"It's fun bossing people around", 
+    	  "who's that lucky guy ;)",
+    	  "who's going down now boss",
+    	  "Wish even I cud add tasks for you !!!"];
       
+      tabArray2 = ["There's always a second chance",
+"I know ...Sometimes the 1st choice is not the best",
+"Did u mess it again :D",
+"I love u ... I know u tht u love me too but just cant say it !!",
+"How are you today?"];
       
+      tabArray3 = ["What does the report look like.. I really cant see from here !!",
+    	  "Are you in trouble :-D",
+    	  "Is someone in trouble :-D",
+    	  "Psst... Do you want me to rig the report",
+    	  "I know what you're thinking... I can't do it :-p" ]
+      
+     
       if(newValue==2)
       {
             $scope.$emit('CallParentMethod',{});
-            this.msg="Hey Howdy!!";
+            this.msg=tabArray1[Math.floor(Math.random() * tabArray1.length)];
       }
 
 
@@ -372,18 +389,18 @@ console.log("inside functionlityu");
       if(newValue==3)
       {    
             $scope.$emit('CallAnotherParentMethod',{});
-            this.msg="Hey SSup!!";
+            this.msg=tabArray2[Math.floor(Math.random() * tabArray2.length)];
       }
       
       if(newValue==4)
       {    
             $scope.$emit('CallAnotherParentMethod',{});
-            this.msg="Hey HOw YO u Doing!!";
+            this.msg=tabArray3[Math.floor(Math.random() * tabArray3.length)];
       }
       
       $(".bubble").html(this.msg);
       //$(".bubble").show();
-     $(".bubble").show().delay(3000).fadeOut();
+     $(".bubble").show().delay(5000).fadeOut();
 
 
 
