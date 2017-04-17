@@ -873,6 +873,7 @@ $scope.personalDetail1 = angular.copy($scope.initial);
 	 		                  "yAxisNameFontBold": "0",
 	 		                  "showXAxisLine": "1",
 	 		                  "xAxisLineColor": "#999999",
+	 		                  "labelDisplay": "wrap",
 	 		                },
 	 		          /*     "data": [{
 	 		                  "name": "Varun",
