@@ -1,7 +1,7 @@
 {
   "version": "v1",
   "title": "Spring IDE",
-  "timestamp": 1491349152953,
+  "timestamp": 1491966297011,
   "ttl": 10080,
   "helpUrl": "https://aer.ctrlflow.com/spring-ide/help",
   "feedbackUrl": "http://ctrlflow.com/automated-error-reporting",
@@ -39,5 +39,5 @@
   "ignoredStatuses": [
     ":java.net.*:"
   ],
-  "problemsZipLastDownloadTimestamp": 1491349453922
+  "problemsZipLastDownloadTimestamp": 1491966597773
 }
