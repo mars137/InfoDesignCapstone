@@ -491,6 +491,7 @@ fieldset[disabled] .btn-success.active {
  border: 1px solid;
     background-color: #18BC9C;
     color: white;
+    height:30px;
  }
  
 .bubble 
@@ -567,6 +568,9 @@ z-index: 0;
 }
 .pad-top-mob{
 	margin-top:15px;
+}
+.flex-gt-xs{
+	margin-bottom:5px;
 }
 }
 	
