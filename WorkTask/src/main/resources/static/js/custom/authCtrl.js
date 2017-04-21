@@ -41,12 +41,12 @@ app.controller('LoginCtrl',function($scope,$http,$location,$rootScope ,$window){
    		res.success(function(data, status, headers, config) {
    		
    			if(data > 0){
-   				swal({
+   				/*swal({
 	   			  title: "Welcome!",
 	   			  text: "Get your work done!!!!.",
 	   			//  timer:20000,
 	   			 imageUrl: "images/login/happyminion.jpg"
-	   			});
+	   			});*/
    				$scope.message = data;
    	   			$rootScope.portfolio=true;
    	        	$rootScope.about=true;
